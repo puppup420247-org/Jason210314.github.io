@@ -83,7 +83,7 @@
     <script defer type="text/javascript" src="/js/index.js"></script>
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
-    <title>OneStep</title>
+    <title>CS:APP解题记录 | OneStep</title>
   </head>
   <body itemscope="" itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
     
@@ -104,7 +104,7 @@
       <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
       <ul id="menu" role="menubar" aria-hidden="false">
         
-        <li role="menuitem"><a href="/" class="current">首页</a></li>
+        <li role="menuitem"><a href="/">首页</a></li>
         
         <li role="menuitem"><a href="/archives/">归档</a></li>
         
@@ -123,25 +123,22 @@
         <div class="main-container">
           <div class="content">
             
-
-<div id="index" class="index page">
+<div id="post" class="page">
   
   <article class="article post card" itemscope="" itemtype="http://schema.org/Article">
     <div class="post-block">
       <link itemprop="mainEntityOfPage" href="https://github.com/Jason210314/Jason210314.github.io/2018/11/08/Csapp解题记录1/">
       <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-        <meta itemprop="name" content="Wmc">
-        <meta itemprop="description" content="">
-        <meta itemprop="image" content="/images/head.jpeg">
+       <meta itemprop="name" content="Wmc">
+       <meta itemprop="description" content="">
+       <meta itemprop="image" content="/images/head.jpeg">
       </span>
       <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-        <meta itemprop="name" content="OneStep">
+       <meta itemprop="name" content="OneStep">
       </span>
     </div>
     <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2018/11/08/Csapp解题记录1/" itemprop="url">CS:APP解题记录</a>
-      </h1>
+      <h1 class="post-title" itemprop="name headline">CS:APP解题记录</h1>
       <div class="post-meta">
         
         <span class="post-date">
@@ -161,7 +158,6 @@
       </div>
     </header>
     <main class="post-main" itemprop="articleBody">
-      
       <a id="more"></a>
 <h3 id="Csapp-2-60"><a href="#Csapp-2-60" class="headerlink" title="Csapp 2.60"></a>Csapp 2.60</h3><figure class="hljs highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-function"><span class="hljs-keyword">unsigned</span> <span class="hljs-title">replace_byte</span><span class="hljs-params">(<span class="hljs-keyword">unsigned</span> x, <span class="hljs-keyword">int</span> i, <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">char</span> b)</span><br></span>&#123;<br>    x = x &amp; (~(<span class="hljs-number">0XFF</span> &lt;&lt; (i &lt;&lt; <span class="hljs-number">3</span>)));<span class="hljs-comment">//相应字节置零</span><br>    x = x | (b &lt;&lt; (i &lt;&lt; <span class="hljs-number">3</span>));      <span class="hljs-comment">//相应字节改为char b</span><br>    <span class="hljs-keyword">return</span> x;<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span><br></span>&#123;<br>    <span class="hljs-keyword">unsigned</span> ret = replace_byte(<span class="hljs-number">0X12345678</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0XAB</span>);<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"0X%X\n"</span>, ret);<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 <pre><code>0X1234AB78
@@ -179,7 +175,6 @@
 <pre><code>0X3F
 </code></pre><p>将无符号int最大值右移$(32 - n)$位，进行了逻辑右移，再强制转换为有符号int。</p>
 
-      
     </main>
     <footer class="post-footer">
       
@@ -255,6 +250,17 @@
 
 
   <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Csapp-2-60"><span class="toc-text">Csapp 2.60</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Csapp-2-65"><span class="toc-text">Csapp 2.65</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Csapp-2-67"><span class="toc-text">Csapp 2.67</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#A-在int为w位的机器中，移位长度不应该超过-w-1-。"><span class="toc-text">A.在int为w位的机器中，移位长度不应该超过$w - 1$。</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#B"><span class="toc-text">B</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#C"><span class="toc-text">C</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Csapp-2-68"><span class="toc-text">Csapp 2.68</span></a></li></ol></div>
+    </div>
+    
     
     
     <hr>
