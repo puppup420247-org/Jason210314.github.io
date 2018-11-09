@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://Jason210314.github.io/"/>
-  <updated>2018-11-08T16:02:30.936Z</updated>
+  <updated>2018-11-09T09:26:33.528Z</updated>
   <id>https://Jason210314.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Bomb_lab</title>
+    <link href="https://Jason210314.github.io/2018/11/09/Bomb_lab/"/>
+    <id>https://Jason210314.github.io/2018/11/09/Bomb_lab/</id>
+    <published>2018-11-09T09:16:00.000Z</published>
+    <updated>2018-11-09T09:26:33.528Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;phase-5&quot;&gt;&lt;a href=&quot;#phase-5&quot; class=&quot;headerlink&quot; title=&quot;phase_5&quot;&gt;&lt;/a&gt;phase_5&lt;/h3&gt;
+    
+    </summary>
+    
+      <category term="学习笔记" scheme="https://Jason210314.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="实验" scheme="https://Jason210314.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%AE%9E%E9%AA%8C/"/>
+    
+    
+      <category term="CS:APP" scheme="https://Jason210314.github.io/tags/CS-APP/"/>
+    
+      <category term="汇编" scheme="https://Jason210314.github.io/tags/%E6%B1%87%E7%BC%96/"/>
+    
+  </entry>
   
   <entry>
     <title>CS:APP解题记录</title>
