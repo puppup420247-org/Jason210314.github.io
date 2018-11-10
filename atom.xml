@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://Jason210314.github.io/"/>
-  <updated>2018-11-09T09:29:37.088Z</updated>
+  <updated>2018-11-10T08:08:14.567Z</updated>
   <id>https://Jason210314.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>DS_exp2</title>
+    <link href="https://Jason210314.github.io/2018/11/10/DS-exp2/"/>
+    <id>https://Jason210314.github.io/2018/11/10/DS-exp2/</id>
+    <published>2018-11-10T06:31:06.000Z</published>
+    <updated>2018-11-10T08:08:14.567Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;设计思路&quot;&gt;&lt;a href=&quot;#设计思路&quot; class=&quot;headerlink&quot; title=&quot;设计思路&quot;&gt;&lt;/a&gt;设计思路&lt;/h3&gt;
+    
+    </summary>
+    
+      <category term="DataStructure" scheme="https://Jason210314.github.io/categories/DataStructure/"/>
+    
+      <category term="Cpp" scheme="https://Jason210314.github.io/categories/DataStructure/Cpp/"/>
+    
+    
+      <category term="Stack" scheme="https://Jason210314.github.io/tags/Stack/"/>
+    
+      <category term="Queue" scheme="https://Jason210314.github.io/tags/Queue/"/>
+    
+      <category term="迷宫问题" scheme="https://Jason210314.github.io/tags/%E8%BF%B7%E5%AE%AB%E9%97%AE%E9%A2%98/"/>
+    
+  </entry>
   
   <entry>
     <title>Bomb_lab</title>
