@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://Jason210314.github.io/"/>
-  <updated>2018-11-10T08:08:14.567Z</updated>
+  <updated>2018-11-16T08:41:35.918Z</updated>
   <id>https://Jason210314.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>DS_work2</title>
+    <link href="https://Jason210314.github.io/2018/11/16/DS-work2/"/>
+    <id>https://Jason210314.github.io/2018/11/16/DS-work2/</id>
+    <published>2018-11-16T02:04:55.000Z</published>
+    <updated>2018-11-16T08:41:35.918Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;代码&quot;&gt;&lt;a href=&quot;#代码&quot; class=&quot;headerlink&quot; title=&quot;代码&quot;&gt;&lt;/a&gt;代码&lt;/h3&gt;
+    
+    </summary>
+    
+      <category term="Datastructure" scheme="https://Jason210314.github.io/categories/Datastructure/"/>
+    
+      <category term="cpp" scheme="https://Jason210314.github.io/categories/Datastructure/cpp/"/>
+    
+    
+      <category term="广义表" scheme="https://Jason210314.github.io/tags/%E5%B9%BF%E4%B9%89%E8%A1%A8/"/>
+    
+  </entry>
   
   <entry>
     <title>DS_exp2</title>
@@ -47,11 +69,11 @@
     <link href="https://Jason210314.github.io/2018/11/09/Bomb_lab/"/>
     <id>https://Jason210314.github.io/2018/11/09/Bomb_lab/</id>
     <published>2018-11-09T09:16:00.000Z</published>
-    <updated>2018-11-09T09:29:37.088Z</updated>
+    <updated>2018-11-16T09:04:35.043Z</updated>
     
     <summary type="html">
     
-      &lt;h3 id=&quot;phase-5&quot;&gt;&lt;a href=&quot;#phase-5&quot; class=&quot;headerlink&quot; title=&quot;phase_5&quot;&gt;&lt;/a&gt;phase_5&lt;/h3&gt;
+      &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/deepmind210/article/details/83316486&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;phase_1 - Phase_4&lt;/a&gt;&lt;br&gt;&lt;/p&gt;
     
     </summary>
     
