@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://Jason210314.github.io/"/>
-  <updated>2018-12-01T08:52:33.382Z</updated>
+  <updated>2018-12-01T16:17:07.799Z</updated>
   <id>https://Jason210314.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Bomb_lab2</title>
+    <link href="https://Jason210314.github.io/2018/12/01/Bomb_lab2/"/>
+    <id>https://Jason210314.github.io/2018/12/01/Bomb_lab2/</id>
+    <published>2018-12-01T09:20:21.000Z</published>
+    <updated>2018-12-01T16:17:07.799Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;实验步骤&quot;&gt;&lt;a href=&quot;#实验步骤&quot; class=&quot;headerlink&quot; title=&quot;实验步骤&quot;&gt;&lt;/a&gt;实验步骤&lt;/h2&gt;
+    
+    </summary>
+    
+      <category term="学习笔记" scheme="https://Jason210314.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="CS:APP" scheme="https://Jason210314.github.io/tags/CS-APP/"/>
+    
+      <category term="汇编" scheme="https://Jason210314.github.io/tags/%E6%B1%87%E7%BC%96/"/>
+    
+  </entry>
   
   <entry>
     <title>DS_exp3</title>
