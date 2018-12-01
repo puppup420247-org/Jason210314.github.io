@@ -85,7 +85,7 @@
     <script defer type="text/javascript" src="/js/index.js"></script>
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
-    <title>标签: Stack | OneStep</title>
+    <title>DS_exp3 | OneStep</title>
   </head>
   <body itemscope="" itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
     
@@ -123,21 +123,74 @@
         <div class="main-container">
           <div class="content">
             
-<div id="tag" class="tag page">
-  <h1 class="page-title">Stack</h1>
+<div id="post" class="page">
   
   <article class="article post card" itemscope="" itemtype="http://schema.org/Article">
-    <header id="post-header" class="post-header">
-      <h1 class="post-title-simple" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2018/11/10/DS_exp2/" itemprop="url">DS_exp2</a>
-      </h1>
-      
-      <span class="post-date">
-        <time title="post-date" itemprop="dateCreated datePublished" datetime="2018-11-10T14:31:06+08:00">11-10</time>
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="https://Jason210314.github.io/2018/12/01/DS_exp3/">
+      <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Wmc">
+       <meta itemprop="description" content="">
+       <meta itemprop="image" content="/images/head.jpeg">
       </span>
-      
+      <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="OneStep">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">DS_exp3</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2018-12-01T16:00:31+08:00">2018-12-01 16:00:31</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/数据结构/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a></span><i class="fas fa-angle-right"></i><span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/数据结构/cpp/" itemprop="url" rel="index"><span itemprop="name">cpp</span></a></span>
+        </span>
+        
+        
+      </div>
     </header>
+    <main class="post-main" itemprop="articleBody">
+      <h3 id="设计思路"><a href="#设计思路" class="headerlink" title="设计思路"></a>设计思路</h3><a id="more"></a>
+<p>BM算法是一种后缀匹配算法,其具有比KMP算法更优秀的性能表现.其核心思想有二<br>,第一是坏字符,坏字符就是pattern与text从右往左第一失配的在text中的字符,<br>二是好后缀,好后缀就是pattern与text从右往左连续匹配成功的子串.对于坏字符<br>和好后缀,有各自的模式串移动规则,可以确定各自失配时需要移动的位数,最终选<br>择二者中移动位数较大者移动.在主函数中,让用户输入文档名与需要查找的单词.<br>每次从文档中读取一行进行匹配搜索,每次使用BM算法搜索完成后,若搜索到单词,<br>则将主串中开始匹配的位置定为查找到单词的下一行,使用BM算法进行下一个匹配<br>搜索,直至搜索完当前行.而后循环直至匹配完整个文档.</p>
+<h3 id="代码说明"><a href="#代码说明" class="headerlink" title="代码说明"></a>代码说明</h3><figure class="hljs highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">int</span>* <span class="hljs-title">CreateBC</span><span class="hljs-params">(<span class="hljs-keyword">char</span>* pattern, <span class="hljs-keyword">int</span> len)</span></span>;<br></code></pre></td></tr></table></figure>
+<p>传入模式串及其长度,返回根据坏字符的跳转数组.<br><figure class="hljs highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">int</span>* <span class="hljs-title">CreateSuffix</span><span class="hljs-params">(<span class="hljs-keyword">char</span>* pattern, <span class="hljs-keyword">int</span> len)</span></span>;<br><span class="hljs-function"><span class="hljs-keyword">int</span>* <span class="hljs-title">CreateGS</span><span class="hljs-params">(<span class="hljs-keyword">char</span>* pattern, <span class="hljs-keyword">int</span> len)</span></span>;<br></code></pre></td></tr></table></figure></p>
+<p>两个函数都需要传入模式串及其长度,第一个函数返回其后缀数组,第二个函数调<br>用第一个函数返回根据好后缀的跳转数组.<br><figure class="hljs highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">bm_search</span><span class="hljs-params">(<span class="hljs-keyword">char</span>* text, <span class="hljs-keyword">int</span> text_len, <span class="hljs-keyword">char</span>* pattern, <span class="hljs-keyword">int</span> pattern_len, <span class="hljs-keyword">int</span> *bc, <span class="hljs-keyword">int</span> *gs)</span></span>;<br></code></pre></td></tr></table></figure></p>
+<p>传入主串及其长度,模式串及其长度,坏字符跳转数组,好后缀跳转数组.返回在主串<br>中查找到模式串的第一个位置,未查找到,则返回-1.<br><figure class="hljs highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">char</span>* <span class="hljs-title">get_line</span><span class="hljs-params">(FILE *article, <span class="hljs-keyword">char</span> (&amp;text)[<span class="hljs-number">1000</span>])</span></span>;<br></code></pre></td></tr></table></figure></p>
+<p>从给定的article文件中读取最大1000字符的一行,存在text位置,读取到文件末尾<br>则返回NULL.</p>
+<h3 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h3><p><img src="/2018/12/01/DS_exp3/ret.png" alt="运行结果"></p>
+<p>此为从马丁路德金的I hava a dream演讲稿中查找dream得出的结果.</p>
+
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/串匹配/" rel="tag"><i class="fas fa-tags"></i>串匹配</a>
+        
+      </div>
+      
+    </footer>
   </article>
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2018/11/16/DS_work2/" rel="next" title="DS_work2"><i class="fas fa-angle-left"></i><span class="nav-title">DS_work2</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+    </div>
+  </nav>
   
   
 </div>
@@ -197,6 +250,17 @@
 
 
   <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#设计思路"><span class="toc-text">设计思路</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#代码说明"><span class="toc-text">代码说明</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#运行结果"><span class="toc-text">运行结果</span></a></li></ol></div>
+    </div>
+    
     
     
     <hr>
