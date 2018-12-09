@@ -85,7 +85,7 @@
     <script defer type="text/javascript" src="/js/index.js"></script>
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
-    <title>DS_work2 | OneStep</title>
+    <title>Python数据清洗初步 | OneStep</title>
   </head>
   <body itemscope="" itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
     
@@ -127,7 +127,7 @@
   
   <article class="article post card" itemscope="" itemtype="http://schema.org/Article">
     <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="https://Jason210314.github.io/2018/11/16/DS_work2/">
+      <link itemprop="mainEntityOfPage" href="https://Jason210314.github.io/2018/12/09/Python数据清洗初步/">
       <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
        <meta itemprop="name" content="Wmc">
        <meta itemprop="description" content="">
@@ -138,11 +138,11 @@
       </span>
     </div>
     <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">DS_work2</h1>
+      <h1 class="post-title" itemprop="name headline">Python数据清洗初步</h1>
       <div class="post-meta">
         
         <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2018-11-16T10:04:55+08:00">2018-11-16 10:04:55</time></span>
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2018-12-09T17:14:11+08:00">2018-12-09 17:14:11</time></span>
         </span>
         
         
@@ -151,22 +151,32 @@
         
         <span class="post-categories">
           
-          <i class="far fa-folder-open"></i><span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/数据结构/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a></span>
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a></span>
         </span>
         
         
       </div>
     </header>
     <main class="post-main" itemprop="articleBody">
-      <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><a id="more"></a>
-<figure class="hljs highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">GList_copy</span><span class="hljs-params">(GList L, GList &amp;N)</span><br></span>&#123;<br>    <span class="hljs-comment">//非空表则进入</span><br>    <span class="hljs-keyword">if</span>(L)<br>    &#123;<br>        N = <span class="hljs-keyword">new</span> GLNode;<br>        <span class="hljs-keyword">if</span>(!N) <span class="hljs-comment">//未分配空间</span><br>        &#123;<br>            <span class="hljs-built_in">exit</span>(OVERFLOW);<br>        &#125;<br>        N-&gt;tag = L-&gt;tag; <span class="hljs-comment">//复制标志位</span><br>        <span class="hljs-keyword">if</span>(L-&gt;tag==ATOM)    <span class="hljs-comment">//如果是原子</span><br>        &#123;    <br>            N-&gt;atom = L-&gt;atom;<br>        &#125;<br>        <span class="hljs-keyword">else</span>            <span class="hljs-comment">//复制表头</span><br>        &#123;<br>            GList_copy(L-&gt;hp, N-&gt;hp);<br>        &#125;<br>        <span class="hljs-keyword">if</span>(!(L-&gt;tp))    <span class="hljs-comment">//表尾为空，则递归完表</span><br>        &#123;<br>            N-&gt;tp=<span class="hljs-literal">NULL</span>;<br>        &#125;<br>        <span class="hljs-keyword">else</span>            <span class="hljs-comment">//复制表尾</span><br>        &#123;<br>            GList_copy(L-&gt;tp, N-&gt;tp);<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
+      <h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><a id="more"></a>
+<p>XML是一种可扩展标记语言，被用来传输和存储数据。它是一种有逻辑的树结构。</p>
+<h4 id="Python使用xml-ElementTree解析"><a href="#Python使用xml-ElementTree解析" class="headerlink" title="Python使用xml.ElementTree解析"></a>Python使用xml.ElementTree解析</h4><figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> xml.etree.ElementTree <span class="hljs-keyword">as</span> ET<br><span class="hljs-keyword">import</span> codecs<br><span class="hljs-keyword">import</span> json<br></code></pre></td></tr></table></figure>
+<p>codecs用于打开文件，json用于保存清洗完的数据。</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">tree = ET.parse()		<span class="hljs-comment">#获取目录树</span><br>root = tree.getroot() 	<span class="hljs-comment">#得到树根 </span><br>root = ET.fromstring()	<span class="hljs-comment">#从字符串直接解析出树根</span><br></code></pre></td></tr></table></figure>
+<p>获取树根，然后进行操作</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python">root.tag		<span class="hljs-comment">#root元素的标记名</span><br>root.attrib		<span class="hljs-comment">#root元素的属性，为一个dic</span><br><span class="hljs-keyword">for</span> child <span class="hljs-keyword">in</span> root:	<span class="hljs-comment">#便利子元素</span><br>	print(child.tag, child.attrib)<br>root[<span class="hljs-number">0</span>][<span class="hljs-number">1</span>].text 	<span class="hljs-comment">#将元素视为多维数组,用下标访问</span><br>root.find(<span class="hljs-string">"element"</span>).text 	<span class="hljs-comment">#找出root下element下的内容字符串</span><br>title = root.get(<span class="hljs-string">"Title"</span>) 	<span class="hljs-comment">#获取root元素的title属性</span><br><br><span class="hljs-keyword">for</span> neighbor <span class="hljs-keyword">in</span> root.iter(<span class="hljs-string">'neighbor'</span>):	<span class="hljs-comment">#遍历所有特定元素,递归到所有，子、孙...元素</span><br>	print(neighbor.attrib)<br><span class="hljs-keyword">for</span> country <span class="hljs-keyword">in</span> root.findall(<span class="hljs-string">'country'</span>):	<span class="hljs-comment">#找出所有country元素，仅子代</span><br>     rank = country.find(<span class="hljs-string">'rank'</span>).text<br>     name = country.get(<span class="hljs-string">'name'</span>)<br>     print(name, rank)<br><span class="hljs-keyword">for</span> country <span class="hljs-keyword">in</span> root.find(<span class="hljs-string">'country'</span>):	<span class="hljs-comment">#仅找出第一个符合的子代</span><br></code></pre></td></tr></table></figure>
+<h3 id="其他涉及知识"><a href="#其他涉及知识" class="headerlink" title="其他涉及知识"></a>其他涉及知识</h3><figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> os<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">mkdir</span><span class="hljs-params">(path)</span>:</span>	<span class="hljs-comment">#创建文件夹</span><br>    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> os.path.exists(path):<br>        os.mkdir(path)<br>        <br><span class="hljs-keyword">for</span> son_path <span class="hljs-keyword">in</span> os.listdir(root_path):	<span class="hljs-comment">#遍历root_path下的文件</span><br>    <br>json.dump(dic, file_obj, ensure_ascii=<span class="hljs-keyword">False</span>, indent=<span class="hljs-number">4</span>, separators=(<span class="hljs-string">','</span>, <span class="hljs-string">': '</span>))	<span class="hljs-comment">#将字典dic输出到文件file_obj中,不对ascii进行编码,缩进4,分隔符为','以及': '</span><br></code></pre></td></tr></table></figure>
+<h3 id="暂时到此"><a href="#暂时到此" class="headerlink" title="暂时到此"></a>暂时到此</h3>
     </main>
     <footer class="post-footer">
       
       <div class="post-tags">
         
-        <a class="post-tag button" href="/tags/广义表/" rel="tag"><i class="fas fa-tags"></i>广义表</a>
+        <a class="post-tag button" href="/tags/数据清洗/" rel="tag"><i class="fas fa-tags"></i>数据清洗</a>
+        
+        <a class="post-tag button" href="/tags/ElementTree/" rel="tag"><i class="fas fa-tags"></i>ElementTree</a>
+        
+        <a class="post-tag button" href="/tags/XML/" rel="tag"><i class="fas fa-tags"></i>XML</a>
         
       </div>
       
@@ -177,12 +187,10 @@
   <nav class="page-nav">
     <div class="page-nav-next page-nav-item">
       
-      <a href="/2018/11/10/DS_exp2/" rel="next" title="DS_exp2"><i class="fas fa-angle-left"></i><span class="nav-title">DS_exp2</span></a>
+      <a href="/2018/12/08/Attack-lab/" rel="next" title="Attack_lab"><i class="fas fa-angle-left"></i><span class="nav-title">Attack_lab</span></a>
       
     </div>
     <div class="page-nav-prev page-nav-item">
-      
-      <a href="/2018/12/01/DS_exp3/" rel="prev" title="DS_exp3"><span class="nav-title">DS_exp3</span><i class="fas fa-angle-right"></i></a>
       
     </div>
   </nav>
@@ -253,7 +261,7 @@
     <hr>
     <div class="post-toc sidebar-item" id="toc-div">
       <div><i class="fas fa-list-ol"></i>文章目录</div>
-      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#代码"><span class="toc-text">代码</span></a></li></ol></div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#简介"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#Python使用xml-ElementTree解析"><span class="toc-text">Python使用xml.ElementTree解析</span></a></li></ol><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#其他涉及知识"><span class="toc-text">其他涉及知识</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#暂时到此"><span class="toc-text">暂时到此</span></a></li></div>
     </div>
     
     
