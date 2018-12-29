@@ -93,6 +93,7 @@
 <meta property="og:site_name" content="OneStep">
 <meta property="og:description" content="实验步骤">
 <meta property="og:locale" content="zh_Hans">
+<meta property="og:image" content="https://jason210314.github.io/2018/12/28/I-O-lab/lab4.png">
 <meta property="og:image" content="https://jason210314.github.io/2018/12/28/I-O-lab/struct.png">
 <meta property="og:image" content="https://jason210314.github.io/2018/12/28/I-O-lab/keyboard.png">
 <meta property="og:image" content="https://jason210314.github.io/2018/12/28/I-O-lab/tty.png">
@@ -102,11 +103,11 @@
 <meta property="og:image" content="https://jason210314.github.io/2018/12/28/I-O-lab/machine.png">
 <meta property="og:image" content="https://jason210314.github.io/2018/12/28/I-O-lab/con2.png">
 <meta property="og:image" content="https://jason210314.github.io/2018/12/28/I-O-lab/run2.png">
-<meta property="og:updated_time" content="2018-12-28T14:30:22.025Z">
+<meta property="og:updated_time" content="2018-12-29T06:56:51.193Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="I&#x2F;O_lab">
 <meta name="twitter:description" content="实验步骤">
-<meta name="twitter:image" content="https://jason210314.github.io/2018/12/28/I-O-lab/struct.png">
+<meta name="twitter:image" content="https://jason210314.github.io/2018/12/28/I-O-lab/lab4.png">
 
 
 
@@ -369,7 +370,7 @@
 
       
         <h3 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a>实验步骤</h3><a id="more"></a>
-<p>本次试验中，主要涉及keyboard.S，tty_io.c，console.c。其中：keyboard.S主要实现键盘中断处理过程，当按下键盘时，出发中断，由改程序进行处理；tty_io.c包含tty字符设备读函数tty_read()和tty_write()，为文件系统提供了上层访问接口，copy_to_cooked()将输入字符移至tty辅助队列secondary与写队列write_q中。</p>
+<p>本次试验中，主要涉及keyboard.S，tty_io.c，console.c。其中：keyboard.S主要实现键盘中断处理过程，当按下键盘时，出发中断，由对应函数进行处理，并将字符放入read_q写队列中；tty_io.c包含tty字符设备读函数tty_read()和tty_write()，为文件系统提供了上层访问接口，copy_to_cooked()将输入字符处理后添加到tty辅助队列secondary中，若开启了回显功能，则还会将其添加到write_q写队列中，由console.c中的con_write()函数中写入到终端。<br><img src="/2018/12/28/I-O-lab/lab4.png" alt=""></p>
 <p><img src="/2018/12/28/I-O-lab/struct.png" alt=""></p>
 <h4 id="phase1"><a href="#phase1" class="headerlink" title="phase1"></a>phase1</h4><p>此关要求将f12作为一个开关，用于启用/关闭*模式，我们需要加一个全局变量用以标示是否开启改模式。首先需要对keyboard.S进行改动，使按下f12时执行正确的中断调用。我们可以见得，functions按键由func函数进行处理，当检测到按下的为f12时，调用change_f12Flag()函数该表标志。</p>
 <p><img src="/2018/12/28/I-O-lab/keyboard.png" alt=""></p>
