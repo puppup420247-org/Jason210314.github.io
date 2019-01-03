@@ -103,7 +103,7 @@
 <meta property="og:image" content="https://jason210314.github.io/2018/12/28/I-O-lab/machine.png">
 <meta property="og:image" content="https://jason210314.github.io/2018/12/28/I-O-lab/con2.png">
 <meta property="og:image" content="https://jason210314.github.io/2018/12/28/I-O-lab/run2.png">
-<meta property="og:updated_time" content="2018-12-31T16:24:02.749Z">
+<meta property="og:updated_time" content="2019-01-03T15:52:10.489Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="I&#x2F;O_lab">
 <meta name="twitter:description" content="实验步骤">
@@ -372,19 +372,19 @@
         <h3 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a>实验步骤</h3><a id="more"></a>
 <p>本次试验中，主要涉及keyboard.S，tty_io.c，console.c。其中：keyboard.S主要实现键盘中断处理过程，当按下键盘时，出发中断，由对应函数进行处理，并将字符放入read_q写队列中；tty_io.c包含tty字符设备读函数tty_read()和tty_write()，为文件系统提供了上层访问接口，copy_to_cooked()将输入字符处理后添加到tty辅助队列secondary中，若开启了回显功能，则还会将其添加到write_q写队列中，由console.c中的con_write()函数中写入到终端。<br><img src="/2018/12/28/I-O-lab/lab4.png" alt=""></p>
 <p><img src="/2018/12/28/I-O-lab/struct.png" alt=""></p>
-<h4 id="phase1"><a href="#phase1" class="headerlink" title="phase1"></a>phase1</h4><p>此关要求将f12作为一个开关，用于启用/关闭*模式，我们需要加一个全局变量用以标示是否开启改模式。首先需要对keyboard.S进行改动，使按下f12时执行正确的中断调用。我们可以见得，functions按键由func函数进行处理，当检测到按下的为f12时，调用change_f12Flag()函数该表标志。</p>
+<h4 id="phase1"><a href="#phase1" class="headerlink" title="phase1"></a>phase1</h4><p>此关要求将f12作为一个开关，用于启用/关闭*模式，我们需要加一个全局变量用以标示是否开启改模式。首先需要对keyboard.S进行改动，使按下f12时执行正确的中断调用。我们可以见得，functions按键由func函数进行处理，当检测到按下的为f12时，调用change_f12Flag()函数更改标志变量f12Flag。</p>
 <p><img src="/2018/12/28/I-O-lab/keyboard.png" alt=""></p>
 <p>我们在f12中声明f12Flag，并且将该函数放置在其中，供keyboard.S调用处理按下f12的情况。</p>
 <p><img src="/2018/12/28/I-O-lab/tty.png" alt=""></p>
-<p>并且在console.c中引入外部变量f12Flag，对输出加以变化，当f12Flag非0时，将姓名拼音首位字母变为*。</p>
+<p>并且在console.c中引入外部变量f12Flag，对输出加以更改。当f12Flag非0时，将姓名拼音首位字母变为*。</p>
 <p><img src="/2018/12/28/I-O-lab/con_w.png" alt=""></p>
 <p>至此，修改完成，我们make生成image之后，运行./run脚本，开启boch虚拟机。</p>
 <p><img src="/2018/12/28/I-O-lab/run.png" alt=""></p>
 <p>运行正确。</p>
-<h4 id="phase2"><a href="#phase2" class="headerlink" title="phase2"></a>phase2</h4><p>此阶段，和phase1相似，只是将开启/关闭条件改为了学号/学号-。那么我们在tty_io.c中加入一个有限状态自动机即可，copy_to_cooked()会将输入字符加入到tty辅助队列和tty写入队列，我们状态机代码放在此处。</p>
+<h4 id="phase2"><a href="#phase2" class="headerlink" title="phase2"></a>phase2</h4><p>此阶段，和phase1相似，只是将开启/关闭条件改为了学号/学号-。那么我们在tty_io.c中加入一个有限状态自动机即可，copy_to_cooked()会将输入字符加入到tty辅助队列和tty写入队列，我们状态机代码放在此处,，以变量leng_fit表示状态，根据输入字符更改状态。</p>
 <p><img src="/2018/12/28/I-O-lab/long_fit.png" alt=""></p>
 <p><img src="/2018/12/28/I-O-lab/machine.png" alt=""></p>
-<p>然后我们在console.c中引入外部变量leng_fit，当leng_fit为10时，改变输入。</p>
+<p>然后我们在console.c中引入外部变量leng_fit，当leng_fit为10时，改变输出。</p>
 <p><img src="/2018/12/28/I-O-lab/con2.png" alt=""></p>
 <p>我们make后运行。</p>
 <p><img src="/2018/12/28/I-O-lab/run2.png" alt=""></p>
