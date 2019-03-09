@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://Jason210314.github.io/"/>
-  <updated>2019-02-01T17:41:17.421Z</updated>
+  <updated>2019-03-09T13:01:40.051Z</updated>
   <id>https://Jason210314.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>DeepLearning1</title>
+    <link href="https://Jason210314.github.io/2019/03/09/DeepLearning1/"/>
+    <id>https://Jason210314.github.io/2019/03/09/DeepLearning1/</id>
+    <published>2019-03-09T12:45:21.000Z</published>
+    <updated>2019-03-09T13:01:40.051Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;神经网络正向及反向传播核心算法&quot;&gt;&lt;a href=&quot;#神经网络正向及反向传播核心算法&quot; class=&quot;headerlink&quot; title=&quot;神经网络正向及反向传播核心算法&quot;&gt;&lt;/a&gt;神经网络正向及反向传播核心算法&lt;/h3&gt;
+    
+    </summary>
+    
+      <category term="DeepLearning" scheme="https://Jason210314.github.io/categories/DeepLearning/"/>
+    
+    
+      <category term="Logistic" scheme="https://Jason210314.github.io/tags/Logistic/"/>
+    
+      <category term="Basic NN" scheme="https://Jason210314.github.io/tags/Basic-NN/"/>
+    
+  </entry>
   
   <entry>
     <title>Ubuntu18.04安装TensorFlow-gpu</title>
