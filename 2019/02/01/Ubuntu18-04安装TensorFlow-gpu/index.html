@@ -2,7 +2,7 @@
 <html lang="zh">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>Ubuntu18.04安装TensorFlow-gpu - OneStep</title>
+<title>Ubuntu18.04安装CUDA10.0及TensorFlow-gpu - OneStep</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
@@ -10,15 +10,15 @@
     <meta name="description" content="显卡驱动">
 <meta name="keywords" content="ubuntu">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Ubuntu18.04安装TensorFlow-gpu">
+<meta property="og:title" content="Ubuntu18.04安装CUDA10.0及TensorFlow-gpu">
 <meta property="og:url" content="https://Jason210314.github.io/2019/02/01/Ubuntu18-04安装TensorFlow-gpu/index.html">
 <meta property="og:site_name" content="OneStep">
 <meta property="og:description" content="显卡驱动">
 <meta property="og:locale" content="zh_Hans">
 <meta property="og:image" content="https://jason210314.github.io/images/og_image.png">
-<meta property="og:updated_time" content="2019-05-03T08:21:53.855Z">
+<meta property="og:updated_time" content="2019-08-10T09:01:12.685Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ubuntu18.04安装TensorFlow-gpu">
+<meta name="twitter:title" content="Ubuntu18.04安装CUDA10.0及TensorFlow-gpu">
 <meta name="twitter:description" content="显卡驱动">
 <meta name="twitter:image" content="https://jason210314.github.io/images/og_image.png">
 
@@ -94,7 +94,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="Ubuntu18.04安装TensorFlow-gpu" height="28">
+                <img src="/images/logo.svg" alt="Ubuntu18.04安装CUDA10.0及TensorFlow-gpu" height="28">
             
             </a>
         </div>
@@ -146,7 +146,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    3 minutes read (About 493 words)
+                    4 minutes read (About 535 words)
                 </span>
                 
                 
@@ -155,23 +155,26 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                Ubuntu18.04安装TensorFlow-gpu
+                Ubuntu18.04安装CUDA10.0及TensorFlow-gpu
             
         </h1>
         <div class="content">
             <h3 id="显卡驱动"><a href="#显卡驱动" class="headerlink" title="显卡驱动"></a>显卡驱动</h3><a id="more"></a>
-<p>终端执行<br><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install nvidia-driver-390</span><br></pre></td></tr></table></figure></p>
-<p><img src="/2019/02/01/Ubuntu18-04安装TensorFlow-gpu/driver.png" alt=""></p>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>官网有安装所需软件要求<br><img src="/2019/02/01/Ubuntu18-04安装TensorFlow-gpu/tensor.png" alt=""></p>
-<h4 id="安装cuda及其组件"><a href="#安装cuda及其组件" class="headerlink" title="安装cuda及其组件"></a>安装cuda及其组件</h4><h5 id="注意，一定不要更新"><a href="#注意，一定不要更新" class="headerlink" title="注意，一定不要更新"></a>注意，一定不要更新</h5><p>使用TensorFlow官方教程一把梭</p>
-<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># Add NVIDIA package repository</span></span><br><span class="line">sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub</span><br><span class="line">wget http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/cuda-repo-ubuntu1604_9.1.85-1_amd64.deb</span><br><span class="line">sudo apt install ./cuda-repo-ubuntu1604_9.1.85-1_amd64.deb</span><br><span class="line">wget http://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1604/x86_64/nvidia-machine-learning-repo-ubuntu1604_1.0.0-1_amd64.deb</span><br><span class="line">sudo apt install ./nvidia-machine-learning-repo-ubuntu1604_1.0.0-1_amd64.deb</span><br><span class="line">sudo apt update</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># Install CUDA and tools. Include optional NCCL 2.x</span></span><br><span class="line">sudo apt install cuda9.0 cuda-cublas-9-0 cuda-cufft-9-0 cuda-curand-9-0 \</span><br><span class="line">    cuda-cusolver-9-0 cuda-cusparse-9-0 libcudnn7=7.2.1.38-1+cuda9.0 \</span><br><span class="line">    libnccl2=2.2.13-1+cuda9.0 cuda-command-line-tools-9-0</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># Optional: Install the TensorRT runtime (must be after CUDA install)</span></span><br><span class="line">sudo apt update</span><br><span class="line">sudo apt install libnvinfer4=4.1.2-1+cuda9.0</span><br></pre></td></tr></table></figure>
-<p>注意不要重复安装nvidia显卡驱动。<br>然后设置环境变量<br><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-built_in">export</span> PATH=/usr/<span class="hljs-built_in">local</span>/cuda-9.0/bin/:<span class="hljs-variable">$PATH</span></span><br><span class="line"><span class="hljs-built_in">export</span> LD_LIBRARY_PATH=<span class="hljs-variable">$LD_LIBRARY_PATH</span>:/usr/<span class="hljs-built_in">local</span>/cuda-9.0/extras/CUPTI/lib64</span><br></pre></td></tr></table></figure></p>
-<p>检验下安装<br><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wmc@OMEN:~$ nvcc -V</span><br><span class="line">nvcc: NVIDIA (R) Cuda compiler driver</span><br><span class="line">Copyright (c) 2005-2017 NVIDIA Corporation</span><br><span class="line">Built on Fri_Sep__1_21:08:03_CDT_2017</span><br><span class="line">Cuda compilation tools, release 9.0, V9.0.176</span><br></pre></td></tr></table></figure></p>
-<h3 id="Anaconda"><a href="#Anaconda" class="headerlink" title="Anaconda"></a>Anaconda</h3><p>Anaconda安装十分简单。<br>安装完成后，我们使用创建一个新的python虚拟环境，安装tensorflow-gpu.<br><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">conda create -n tensor pip python=3.6</span><br><span class="line"><span class="hljs-built_in">source</span> activate tensor</span><br><span class="line">pip install --upgrade tensorflow-gpu</span><br></pre></td></tr></table></figure></p>
-<p>然后使用示例程序来测试一下.<br><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> tensorflow <span class="hljs-keyword">as</span> tf</span><br><span class="line">mnist = tf.keras.datasets.mnist</span><br><span class="line"></span><br><span class="line">(x_train, y_train),(x_test, y_test) = mnist.load_data()</span><br><span class="line">x_train, x_test = x_train / <span class="hljs-number">255.0</span>, x_test / <span class="hljs-number">255.0</span></span><br><span class="line"></span><br><span class="line">model = tf.keras.models.Sequential([</span><br><span class="line">  tf.keras.layers.Flatten(),</span><br><span class="line">  tf.keras.layers.Dense(<span class="hljs-number">512</span>, activation=tf.nn.relu),</span><br><span class="line">  tf.keras.layers.Dropout(<span class="hljs-number">0.2</span>),</span><br><span class="line">  tf.keras.layers.Dense(<span class="hljs-number">10</span>, activation=tf.nn.softmax)</span><br><span class="line">])</span><br><span class="line">model.compile(optimizer=<span class="hljs-string">'adam'</span>,</span><br><span class="line">              loss=<span class="hljs-string">'sparse_categorical_crossentropy'</span>,</span><br><span class="line">              metrics=[<span class="hljs-string">'accuracy'</span>])</span><br><span class="line"></span><br><span class="line">model.fit(x_train, y_train, epochs=<span class="hljs-number">5</span>)</span><br><span class="line">model.evaluate(x_test, y_test)</span><br></pre></td></tr></table></figure></p>
-<p>查看下，运行时gpu显存飙升，占用率升到50%，确实是启用了tensorflow-gpu.<br><img src="/2019/02/01/Ubuntu18-04安装TensorFlow-gpu/run.png" alt=""></p>
-<h4 id="jupyter支持conda虚拟环境内核"><a href="#jupyter支持conda虚拟环境内核" class="headerlink" title="jupyter支持conda虚拟环境内核"></a>jupyter支持conda虚拟环境内核</h4><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">conda activate tensorflowenv</span><br><span class="line">pip install ipykernel</span><br><span class="line">python -m ipykernel install --user --name tensorflowenv --display-name <span class="hljs-string">"Python (tensorflowenv)"</span></span><br></pre></td></tr></table></figure>
-<h4 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h4><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda install -c conda-forge jupyter_contrib_nbextensions</span><br><span class="line">jupyter contrib nbextension install --user</span><br></pre></td></tr></table></figure>
+<p>最新的18.04.3已经可以安装430驱动<br><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install nvidia-driver-430</span><br></pre></td></tr></table></figure></p>
+<p><img src="/2019/02/01/Ubuntu18-04安装TensorFlow-gpu/driver1.png" alt="NVIDIA设置"></p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>官网有安装所需<a href="https://tensorflow.google.cn/install/gpu" target="_blank" rel="noopener">软件要求</a><br><img src="/2019/02/01/Ubuntu18-04安装TensorFlow-gpu/tensor1.png" alt=""></p>
+<h4 id="安装cuda及其组件"><a href="#安装cuda及其组件" class="headerlink" title="安装cuda及其组件"></a>安装cuda及其组件</h4><p>去官网下载<a href="https://developer.nvidia.com/cuda-10.0-download-archive" target="_blank" rel="noopener">cuda安装runfile及其补丁</a>，</p>
+<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># Add NVIDIA package repository</span></span><br><span class="line">chmod +x ./cuda_10.0.130_410.48_linux.run ./cuda_10.0.130.1_linux.run</span><br><span class="line">sudo ./cuda_10.0.130_410.48_linux.run</span><br><span class="line">sudo ./cuda_10.0.130.1_linux.run</span><br></pre></td></tr></table></figure>
+<p>注意不要重复安装nvidia显卡驱动。<br>然后下载<a href="https://developer.nvidia.com/rdp/cudnn-archive" target="_blank" rel="noopener">cudnn</a>.<br><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf cudnn-10.0-linux-x64-v7.6.2.24.tgz</span><br><span class="line">sudo cp cuda/include/cudnn.h /usr/<span class="hljs-built_in">local</span>/cuda/include</span><br><span class="line">sudo cp cuda/lib64/libcudnn* /usr/<span class="hljs-built_in">local</span>/cuda/lib64</span><br><span class="line">sudo chmod a+r /usr/<span class="hljs-built_in">local</span>/cuda/include/cudnn.h /usr/<span class="hljs-built_in">local</span>/cuda/lib64/libcudnn*</span><br></pre></td></tr></table></figure></p>
+<p>然后设置环境变量(cuda安装完成时会提示)<br><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-built_in">export</span> PATH=/usr/<span class="hljs-built_in">local</span>/cuda/bin/:<span class="hljs-variable">$PATH</span></span><br><span class="line"><span class="hljs-built_in">export</span> LD_LIBRARY_PATH=<span class="hljs-variable">$LD_LIBRARY_PATH</span>:/usr/<span class="hljs-built_in">local</span>/cuda/extras/CUPTI/lib64</span><br></pre></td></tr></table></figure></p>
+<p>检验下安装<br><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wmc@omen:~$ nvcc -V</span><br><span class="line">nvcc: NVIDIA (R) Cuda compiler driver</span><br><span class="line">Copyright (c) 2005-2018 NVIDIA Corporation</span><br><span class="line">Built on Sat_Aug_25_21:08:01_CDT_2018</span><br><span class="line">Cuda compilation tools, release 10.0, V10.0.130</span><br></pre></td></tr></table></figure></p>
+<h3 id="Anaconda"><a href="#Anaconda" class="headerlink" title="Anaconda"></a>Anaconda</h3><p>Anaconda安装十分简单.去喜闻乐见的<a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-2019.07-Linux-x86_64.sh" target="_blank" rel="noopener">tuna</a>下载。<br><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod +x Anaconda3-2019.07-Linux-x86_64.sh</span><br><span class="line">./Anaconda3-2019.07-Linux-x86_64.sh</span><br></pre></td></tr></table></figure></p>
+<p>更换anaconda和pip镜像源<br><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/</span><br><span class="line">conda config --<span class="hljs-built_in">set</span> show_channel_urls yes</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">pip install pip -U</span><br><span class="line">pip config <span class="hljs-built_in">set</span> global.index-url https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure></p>
+<p>安装完成后，我们使用创建一个新的python虚拟环境，安装tensorflow-gpu.<br><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">conda create -n tensor pip python=3.6</span><br><span class="line"><span class="hljs-built_in">source</span> activate tensor</span><br><span class="line">pip install --upgrade tensorflow-gpu</span><br></pre></td></tr></table></figure></p>
+<h4 id="安装jupyter插件"><a href="#安装jupyter插件" class="headerlink" title="安装jupyter插件"></a>安装jupyter插件</h4><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda install -c conda-forge jupyter_contrib_nbextensions</span><br><span class="line">jupyter contrib nbextension install --user</span><br></pre></td></tr></table></figure>
+<h4 id="将conda虚拟环境作为jupyter内核"><a href="#将conda虚拟环境作为jupyter内核" class="headerlink" title="将conda虚拟环境作为jupyter内核"></a>将conda虚拟环境作为jupyter内核</h4><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">conda activate tensorflowenv</span><br><span class="line">pip install ipykernel</span><br><span class="line">python -m ipykernel install --user --name tensorflowenv --display-name <span class="hljs-string">"Python (tensorflowenv)"</span></span><br></pre></td></tr></table></figure>
+<h3 id="最后使用示例程序来测试一下"><a href="#最后使用示例程序来测试一下" class="headerlink" title="最后使用示例程序来测试一下."></a>最后使用示例程序来测试一下.</h3><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> tensorflow <span class="hljs-keyword">as</span> tf</span><br><span class="line">mnist = tf.keras.datasets.mnist</span><br><span class="line"></span><br><span class="line">(x_train, y_train),(x_test, y_test) = mnist.load_data()</span><br><span class="line">x_train, x_test = x_train / <span class="hljs-number">255.0</span>, x_test / <span class="hljs-number">255.0</span></span><br><span class="line"></span><br><span class="line">model = tf.keras.models.Sequential([</span><br><span class="line">  tf.keras.layers.Flatten(input_shape=(<span class="hljs-number">28</span>, <span class="hljs-number">28</span>)),</span><br><span class="line">  tf.keras.layers.Dense(<span class="hljs-number">128</span>, activation=<span class="hljs-string">'relu'</span>),</span><br><span class="line">  tf.keras.layers.Dropout(<span class="hljs-number">0.2</span>),</span><br><span class="line">  tf.keras.layers.Dense(<span class="hljs-number">10</span>, activation=<span class="hljs-string">'softmax'</span>)</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line">model.compile(optimizer=<span class="hljs-string">'adam'</span>,</span><br><span class="line">              loss=<span class="hljs-string">'sparse_categorical_crossentropy'</span>,</span><br><span class="line">              metrics=[<span class="hljs-string">'accuracy'</span>])</span><br><span class="line"></span><br><span class="line">model.fit(x_train, y_train, epochs=<span class="hljs-number">5</span>)</span><br><span class="line">model.evaluate(x_test, y_test)</span><br></pre></td></tr></table></figure>
+<p>运行结果<br><img src="/2019/02/01/Ubuntu18-04安装TensorFlow-gpu/run1.png" alt=""></p>
 
         </div>
         
@@ -510,14 +513,14 @@
             
             <a href="/2019/02/01/Ubuntu18-04安装TensorFlow-gpu/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Ubuntu18.04安装TensorFlow-gpu">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Ubuntu18.04安装CUDA10.0及TensorFlow-gpu">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-01T09:06:10.000Z">2019-02-01</time></div>
-                    <a href="/2019/02/01/Ubuntu18-04安装TensorFlow-gpu/" class="has-link-black-ter is-size-6">Ubuntu18.04安装TensorFlow-gpu</a>
+                    <a href="/2019/02/01/Ubuntu18-04安装TensorFlow-gpu/" class="has-link-black-ter is-size-6">Ubuntu18.04安装CUDA10.0及TensorFlow-gpu</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/python/">python</a> / <a class="has-link-grey -link" href="/categories/python/tensorflow/">tensorflow</a>
                     </p>
@@ -816,14 +819,14 @@
             
             <a href="/2019/02/01/Ubuntu18-04安装TensorFlow-gpu/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Ubuntu18.04安装TensorFlow-gpu">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Ubuntu18.04安装CUDA10.0及TensorFlow-gpu">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-01T09:06:10.000Z">2019-02-01</time></div>
-                    <a href="/2019/02/01/Ubuntu18-04安装TensorFlow-gpu/" class="has-link-black-ter is-size-6">Ubuntu18.04安装TensorFlow-gpu</a>
+                    <a href="/2019/02/01/Ubuntu18-04安装TensorFlow-gpu/" class="has-link-black-ter is-size-6">Ubuntu18.04安装CUDA10.0及TensorFlow-gpu</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/python/">python</a> / <a class="has-link-grey -link" href="/categories/python/tensorflow/">tensorflow</a>
                     </p>
@@ -1093,7 +1096,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="Ubuntu18.04安装TensorFlow-gpu" height="28">
+                    <img src="/images/logo.svg" alt="Ubuntu18.04安装CUDA10.0及TensorFlow-gpu" height="28">
                 
                 </a>
                 <p class="is-size-7">
